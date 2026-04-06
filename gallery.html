@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work – JR Sash Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #f5f0e8;
+  --warm-white: #faf8f4;
+  --stone: #c8b89a;
+  --dark: #1a1714;
+  --mid: #3d3630;
+  --light-mid: #6b5f54;
+  --gold: #a8895c;
+  --gold-light: #c9a96e;
+  --border: rgba(168,137,92,0.22);
+  --border-dark: rgba(168,137,92,0.12);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  position: fixed; pointer-events: none; z-index: 9999;
+  width: 10px; height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+}
+.cursor-ring {
+  position: fixed; pointer-events: none; z-index: 9998;
+  width: 36px; height: 36px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease, width 0.35s ease, height 0.35s ease, opacity 0.3s;
+  opacity: 0.6;
+}
+body.hovering .cursor { width: 6px; height: 6px; }
+body.hovering .cursor-ring { width: 56px; height: 56px; opacity: 0.3; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.4rem 4rem;
+  background: rgba(245,240,232,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: padding 0.4s;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.9rem;
+  text-decoration: none;
+}
+.nav-logo svg { width: 36px; height: 36px; }
+.nav-logo-text .jr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem; font-weight: 600; color: var(--dark); letter-spacing: 0.02em;
+}
+.nav-logo-text .sash {
+  font-size: 0.58rem; font-weight: 500; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--light-mid);
+  display: block; margin-top: -2px;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--mid);
+  font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase;
+  position: relative; transition: color 0.3s;
+}
+.nav-links a.active { color: var(--gold); }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -3px; left: 0;
+  width: 0; height: 1px; background: var(--gold); transition: width 0.3s;
+}
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.65rem 1.5rem; border: 1px solid var(--gold);
+  color: var(--gold); text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--warm-white); }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  padding: 160px 6rem 80px;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: end; gap: 4rem;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.page-header::before {
+  content: 'GALLERY';
+  position: absolute; right: -1rem; top: 50%; transform: translateY(-50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(7rem, 14vw, 14rem);
+  font-weight: 600; color: transparent;
+  -webkit-text-stroke: 1px rgba(168,137,92,0.12);
+  line-height: 1; letter-spacing: -0.02em;
+  pointer-events: none; user-select: none;
+}
+.header-left .eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.4rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.header-left .eyebrow::before {
+  content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+}
+.header-left h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5vw, 5rem); font-weight: 300;
+  line-height: 1.05; color: var(--dark);
+}
+.header-left h1 em { font-style: italic; color: var(--light-mid); }
+.header-right {
+  padding-bottom: 0.3rem;
+}
+.header-right p {
+  font-size: 0.88rem; line-height: 1.85; color: var(--light-mid);
+  max-width: 420px; margin-bottom: 2rem;
+}
+.project-count {
+  display: flex; gap: 2.5rem;
+}
+.count-item .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; color: var(--dark);
+}
+.count-item .lbl {
+  font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--light-mid); margin-top: 0.1rem;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  padding: 2rem 6rem;
+  display: flex; align-items: center; gap: 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  background: var(--warm-white);
+  position: sticky; top: 72px; z-index: 100;
+}
+.filter-label {
+  font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--light-mid); padding-right: 2rem;
+  border-right: 1px solid var(--border); margin-right: 2rem;
+  white-space: nowrap; flex-shrink: 0;
+}
+.filters { display: flex; gap: 0.5rem; flex-wrap: nowrap; }
+.filter-btn {
+  cursor: none;
+  background: transparent; border: 1px solid var(--border);
+  padding: 0.55rem 1.3rem;
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.72rem; letter-spacing: 0.12em;
+  color: var(--mid); white-space: nowrap;
+  transition: all 0.25s; flex-shrink: 0;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--dark); color: var(--cream);
+  border-color: var(--dark);
+}
+
+/* ── GALLERY GRID ── */
+.gallery-section { padding: 5rem 6rem 8rem; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 60px;
+  gap: 12px;
+}
+
+/* Card base */
+.gcard {
+  position: relative; overflow: hidden;
+  background: var(--mid);
+  cursor: none;
+}
+.gcard svg.artwork {
+  width: 100%; height: 100%;
+  position: absolute; inset: 0;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.gcard:hover svg.artwork { transform: scale(1.04); }
+
+.gcard-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(26,23,20,0.85) 0%, rgba(26,23,20,0.1) 50%, transparent 100%);
+  opacity: 0; transition: opacity 0.4s;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 1.6rem 1.8rem;
+}
+.gcard:hover .gcard-overlay { opacity: 1; }
+
+.gcard-tag {
+  font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.4rem;
+}
+.gcard-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 400; font-style: italic;
+  color: var(--cream); line-height: 1.25; margin-bottom: 0.6rem;
+}
+.gcard-loc {
+  font-size: 0.65rem; letter-spacing: 0.12em; color: var(--stone);
+}
+.gcard-arrow {
+  position: absolute; top: 1.2rem; right: 1.4rem;
+  width: 2rem; height: 2rem;
+  border: 1px solid rgba(168,137,92,0.5);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.gcard:hover .gcard-arrow { opacity: 1; transform: translateY(0); }
+.gcard-arrow svg { width: 12px; height: 12px; stroke: var(--gold); }
+
+/* Grid placements — varied sizes for editorial feel */
+.g1  { grid-column: 1/6;   grid-row: 1/9; }
+.g2  { grid-column: 6/10;  grid-row: 1/6; }
+.g3  { grid-column: 10/13; grid-row: 1/6; }
+.g4  { grid-column: 6/9;   grid-row: 6/12; }
+.g5  { grid-column: 9/13;  grid-row: 6/12; }
+.g6  { grid-column: 1/5;   grid-row: 9/15; }
+.g7  { grid-column: 5/9;   grid-row: 12/18; }
+.g8  { grid-column: 9/13;  grid-row: 12/17; }
+.g9  { grid-column: 1/5;   grid-row: 15/21; }
+.g10 { grid-column: 5/8;   grid-row: 17/23; }
+.g11 { grid-column: 8/13;  grid-row: 17/23; }
+.g12 { grid-column: 1/6;   grid-row: 21/27; }
+.g13 { grid-column: 6/9;   grid-row: 23/28; }
+.g14 { grid-column: 9/13;  grid-row: 23/28; }
+
+/* hidden initially for filter */
+.gcard { transition: opacity 0.35s, transform 0.35s; }
+.gcard.hidden { opacity: 0; pointer-events: none; transform: scale(0.97); }
+
+/* ── SEPARATOR TEXT ── */
+.mid-callout {
+  margin: 0 6rem;
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+}
+.mid-callout-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 300; font-style: italic; color: var(--mid);
+  max-width: 500px; line-height: 1.4;
+}
+.mid-callout-action {
+  display: inline-block; padding: 1rem 2.2rem;
+  background: var(--dark); color: var(--cream);
+  text-decoration: none;
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  transition: background 0.3s; flex-shrink: 0;
+}
+.mid-callout-action:hover { background: var(--gold); }
+
+/* ── SERVICES STRIP ── */
+.services-strip {
+  padding: 5rem 6rem 6rem;
+}
+.services-strip-header {
+  margin-bottom: 3rem;
+}
+.strip-eyebrow {
+  font-size: 0.63rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.strip-eyebrow::before {
+  content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
+}
+.strip-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--dark);
+}
+
+.services-list {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border);
+}
+.svc-row {
+  padding: 2rem 2.2rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: background 0.4s;
+  cursor: none;
+}
+.svc-row:nth-child(3n) { border-right: none; }
+.svc-row:nth-child(4), .svc-row:nth-child(5), .svc-row:nth-child(6) { border-bottom: none; }
+.svc-row::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--dark);
+  transform: scaleY(0); transform-origin: bottom;
+  transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
+  z-index: 0;
+}
+.svc-row:hover::after { transform: scaleY(1); }
+.svc-row > * { position: relative; z-index: 1; transition: color 0.4s; }
+.svc-row:hover .svc-n { color: rgba(168,137,92,0.25); }
+.svc-row:hover .svc-name, .svc-row:hover .svc-detail { color: var(--cream); }
+.svc-row:hover .svc-bar { background: rgba(168,137,92,0.4); }
+.svc-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem; font-weight: 300; color: var(--border);
+  line-height: 1; margin-bottom: 1rem;
+}
+.svc-bar { width: 24px; height: 1px; background: var(--gold); margin-bottom: 1rem; transition: background 0.4s; }
+.svc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.6rem;
+}
+.svc-detail { font-size: 0.8rem; line-height: 1.65; color: var(--light-mid); }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 999;
+  background: rgba(20,17,14,0.96);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s;
+  padding: 2rem;
+}
+.lightbox.open { opacity: 1; pointer-events: all; }
+.lightbox-inner {
+  position: relative; max-width: 900px; width: 100%;
+  background: var(--dark);
+  border: 1px solid rgba(168,137,92,0.2);
+  display: grid; grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  transform: scale(0.94); transition: transform 0.4s;
+}
+.lightbox.open .lightbox-inner { transform: scale(1); }
+.lb-visual { min-height: 500px; position: relative; background: #2a2520; }
+.lb-visual svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+.lb-info {
+  padding: 3rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.lb-tag {
+  font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.lb-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
+.lb-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 300; font-style: italic;
+  color: var(--cream); line-height: 1.2; margin-bottom: 0.8rem;
+}
+.lb-loc { font-size: 0.72rem; letter-spacing: 0.12em; color: var(--stone); margin-bottom: 1.5rem; }
+.lb-desc { font-size: 0.82rem; line-height: 1.75; color: rgba(200,184,154,0.7); margin-bottom: 2rem; }
+.lb-cta {
+  display: inline-block; padding: 0.8rem 1.8rem;
+  background: var(--gold); color: var(--dark);
+  text-decoration: none; align-self: flex-start;
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  transition: background 0.3s;
+}
+.lb-cta:hover { background: var(--gold-light); }
+.lb-close {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  width: 2.2rem; height: 2.2rem; cursor: none;
+  border: 1px solid rgba(168,137,92,0.3);
+  background: transparent;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--stone); font-size: 1rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+.lb-close:hover { border-color: var(--gold); color: var(--gold); }
+.lb-nav {
+  position: absolute; bottom: 1.2rem; right: 1.2rem;
+  display: flex; gap: 0.5rem;
+}
+.lb-nav-btn {
+  width: 2rem; height: 2rem; cursor: none;
+  border: 1px solid rgba(168,137,92,0.3);
+  background: transparent; color: var(--stone);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  transition: border-color 0.3s, color 0.3s;
+}
+.lb-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: #111009;
+  padding: 2.5rem 6rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1.5rem;
+  border-top: 1px solid rgba(168,137,92,0.12);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; color: var(--stone); letter-spacing: 0.05em;
+}
+.footer-logo span { color: var(--gold); }
+.footer-mid { font-size: 0.68rem; color: #5a5248; letter-spacing: 0.1em; text-align: center; }
+.footer-right { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: #5a5248; }
+
+/* Fade-up */
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1.2rem 2rem; }
+  .nav-links { display: none; }
+  .page-header { grid-template-columns: 1fr; padding: 130px 2rem 3rem; }
+  .page-header::before { font-size: 5rem; right: 0; }
+  .filter-bar { padding: 1.5rem 2rem; top: 64px; }
+  .gallery-section { padding: 3rem 1.5rem 5rem; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+  }
+  .g1,.g2,.g3,.g4,.g5,.g6,.g7,.g8,.g9,.g10,.g11,.g12,.g13,.g14 {
+    grid-column: auto; grid-row: auto;
+  }
+  .mid-callout { margin: 0 2rem; flex-direction: column; }
+  .services-strip { padding: 3rem 2rem; }
+  .services-list { grid-template-columns: 1fr; }
+  .svc-row { border-right: none; }
+  .svc-row:nth-child(n) { border-bottom: 1px solid var(--border); }
+  .svc-row:last-child { border-bottom: none; }
+  .lightbox-inner { grid-template-columns: 1fr; }
+  .lb-visual { min-height: 260px; }
+  footer { padding: 2rem; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="36" height="36" stroke="#1a1714" stroke-width="1.5"/>
+      <rect x="5" y="5" width="28" height="28" stroke="#1a1714" stroke-width="0.8"/>
+      <line x1="19" y1="5" x2="19" y2="33" stroke="#1a1714" stroke-width="0.8"/>
+      <line x1="5" y1="18" x2="33" y2="18" stroke="#1a1714" stroke-width="0.8"/>
+      <rect x="8" y="22" width="8" height="8" fill="#a8895c" opacity="0.3"/>
+    </svg>
+    <div class="nav-logo-text">
+      <div class="jr">JR</div>
+      <span class="sash">Sash Solutions</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#why">About</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="tel:07724478519" class="nav-cta">07724 478519</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="header-left">
+    <div class="eyebrow">Our Work</div>
+    <h1>Crafted by<br><em>Hand &amp;<br>Eye</em></h1>
+  </div>
+  <div class="header-right">
+    <p>Every project tells the story of a home restored — timber sashes breathing again, draught-proofed for winters ahead, hardware renewed, glass clarified. Browse our work below, filtered by the service that interests you.</p>
+    <div class="project-count">
+      <div class="count-item"><div class="num">6</div><div class="lbl">Services</div></div>
+      <div class="count-item"><div class="num">8+</div><div class="lbl">Years' craft</div></div>
+      <div class="count-item"><div class="num">3</div><div class="lbl">Counties</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-label">Filter by</div>
+  <div class="filters">
+    <button class="filter-btn active" data-cat="all">All Work</button>
+    <button class="filter-btn" data-cat="bespoke">Bespoke Windows &amp; Doors</button>
+    <button class="filter-btn" data-cat="refurb">Refurbishment &amp; Draught-Proofing</button>
+    <button class="filter-btn" data-cat="glass">Glass Changes &amp; Upgrades</button>
+    <button class="filter-btn" data-cat="ironmongery">New Ironmongery</button>
+    <button class="filter-btn" data-cat="decorating">Decorating</button>
+    <button class="filter-btn" data-cat="carpentry">Carpentry</button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="gallery-grid" id="galleryGrid">
+
+    <!-- Card 1 -->
+    <div class="gcard g1" data-cat="bespoke" data-id="0">
+      <svg class="artwork" viewBox="0 0 500 540" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b8cfd8"/><stop offset="100%" stop-color="#e4dccb"/></linearGradient>
+          <linearGradient id="wall1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3d3428"/><stop offset="100%" stop-color="#2a2218"/></linearGradient>
+        </defs>
+        <rect width="500" height="540" fill="url(#wall1)"/>
+        <!-- Window frame -->
+        <rect x="60" y="40" width="380" height="460" fill="#c4b490" rx="1"/>
+        <rect x="68" y="48" width="364" height="444" fill="url(#sky1)"/>
+        <!-- Glazing bars -->
+        <rect x="68" y="270" width="364" height="5" fill="#d0bc94"/>
+        <rect x="248" y="48" width="5" height="222" fill="#d0bc94"/>
+        <rect x="248" y="275" width="5" height="217" fill="#d0bc94"/>
+        <!-- Sash rail -->
+        <rect x="68" y="240" width="364" height="16" fill="#c4b490"/>
+        <!-- Architrave -->
+        <rect x="46" y="28" width="408" height="14" fill="#b0a07a" rx="1"/>
+        <rect x="46" y="492" width="408" height="14" fill="#b0a07a" rx="1"/>
+        <rect x="46" y="28" width="14" height="464" fill="#b0a07a" rx="1"/>
+        <rect x="440" y="28" width="14" height="464" fill="#b0a07a" rx="1"/>
+        <!-- Light -->
+        <rect x="68" y="48" width="364" height="222" fill="url(#sky1)" opacity="0.9"/>
+        <!-- Shadow detail -->
+        <rect x="60" y="40" width="12" height="460" fill="rgba(0,0,0,0.15)"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
+        <div class="gcard-title">Georgian Bay Window Restoration</div>
+        <div class="gcard-loc">Lewes, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="gcard g2" data-cat="refurb" data-id="1">
+      <svg class="artwork" viewBox="0 0 400 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="w2bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c4b898"/><stop offset="100%" stop-color="#8a7a62"/></linearGradient>
+        </defs>
+        <rect width="400" height="310" fill="#2e2820"/>
+        <!-- Two sash windows side by side -->
+        <rect x="20" y="20" width="168" height="270" fill="#c0ae88" rx="1"/>
+        <rect x="28" y="28" width="152" height="254" fill="#ddd6c4"/>
+        <rect x="28" y="155" width="152" height="5" fill="#c8b890"/>
+        <rect x="102" y="28" width="4" height="127" fill="#c8b890"/>
+        <rect x="102" y="160" width="4" height="117" fill="#c8b890"/>
+        <rect x="212" y="20" width="168" height="270" fill="#c0ae88" rx="1"/>
+        <rect x="220" y="28" width="152" height="254" fill="#ddd6c4"/>
+        <rect x="220" y="155" width="152" height="5" fill="#c8b890"/>
+        <rect x="294" y="28" width="4" height="127" fill="#c8b890"/>
+        <rect x="294" y="160" width="4" height="117" fill="#c8b890"/>
+        <!-- Before/after feel: left worn, right restored -->
+        <rect x="20" y="20" width="168" height="270" fill="rgba(0,0,0,0.18)"/>
+        <rect x="196" y="0" width="3" height="310" fill="rgba(168,137,92,0.6)"/>
+        <!-- Labels -->
+        <text x="104" y="306" font-family="Georgia, serif" font-size="9" fill="rgba(168,137,92,0.7)" text-anchor="middle" letter-spacing="2">BEFORE</text>
+        <text x="296" y="306" font-family="Georgia, serif" font-size="9" fill="rgba(168,137,92,0.7)" text-anchor="middle" letter-spacing="2">AFTER</text>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Refurbishment &amp; Draught-Proofing</div>
+        <div class="gcard-title">Victorian Sash Pair, Full Refurb</div>
+        <div class="gcard-loc">Hove, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="gcard g3" data-cat="glass" data-id="2">
+      <svg class="artwork" viewBox="0 0 280 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="glassglow" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#c8e0e8" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#8ab0be" stop-opacity="0.3"/>
+          </radialGradient>
+        </defs>
+        <rect width="280" height="310" fill="#1e1a16"/>
+        <!-- Arched window -->
+        <path d="M50 310 L50 120 Q50 30 140 30 Q230 30 230 120 L230 310 Z" fill="#b8a47a"/>
+        <path d="M58 310 L58 122 Q58 42 140 42 Q222 42 222 122 L222 310 Z" fill="url(#glassglow)"/>
+        <!-- Glazing bar across arch -->
+        <line x1="58" y1="200" x2="222" y2="200" stroke="#c0a87a" stroke-width="4"/>
+        <line x1="140" y1="42" x2="140" y2="310" stroke="#c0a87a" stroke-width="4"/>
+        <!-- Arch bar -->
+        <path d="M58 122 Q58 50 140 50 Q222 50 222 122" fill="none" stroke="#c0a87a" stroke-width="4"/>
+        <!-- Light reflection -->
+        <path d="M70 55 Q100 42 130 45" stroke="white" stroke-width="1.5" fill="none" opacity="0.25" stroke-linecap="round"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Glass Changes &amp; Upgrades</div>
+        <div class="gcard-title">Arched Fanlight, New Glazing</div>
+        <div class="gcard-loc">Tunbridge Wells, Kent</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="gcard g4" data-cat="ironmongery" data-id="3">
+      <svg class="artwork" viewBox="0 0 380 370" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="380" height="370" fill="#232018"/>
+        <!-- Door panel -->
+        <rect x="60" y="20" width="260" height="330" fill="#5a4a30" rx="2"/>
+        <rect x="70" y="30" width="240" height="310" fill="#4a3c24" rx="1"/>
+        <!-- Panel mouldings -->
+        <rect x="85" y="45" width="210" height="130" fill="none" stroke="#6a5438" stroke-width="2"/>
+        <rect x="90" y="50" width="200" height="120" fill="#422e18" rx="1"/>
+        <rect x="85" y="195" width="210" height="130" fill="none" stroke="#6a5438" stroke-width="2"/>
+        <rect x="90" y="200" width="200" height="120" fill="#422e18" rx="1"/>
+        <!-- Letter box -->
+        <rect x="148" y="268" width="84" height="22" fill="#8a7854" rx="1"/>
+        <rect x="152" y="272" width="76" height="14" fill="#2a2010" rx="1"/>
+        <!-- Door knob (ironmongery focus) -->
+        <circle cx="262" cy="195" r="16" fill="#d4a84a"/>
+        <circle cx="262" cy="195" r="11" fill="#e8c060"/>
+        <circle cx="262" cy="195" r="5" fill="#c09030"/>
+        <!-- Knocker -->
+        <rect x="174" y="148" width="32" height="8" fill="#c09030" rx="2"/>
+        <ellipse cx="190" cy="144" rx="10" ry="6" fill="none" stroke="#d4a84a" stroke-width="3"/>
+        <!-- Highlight on knob -->
+        <circle cx="257" cy="190" r="3" fill="rgba(255,255,220,0.4)"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">New Ironmongery</div>
+        <div class="gcard-title">Brass Hardware Renewal</div>
+        <div class="gcard-loc">Greenwich, London</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="gcard g5" data-cat="decorating" data-id="4">
+      <svg class="artwork" viewBox="0 0 380 370" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="freshpaint" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f0ece0"/>
+            <stop offset="100%" stop-color="#e4dece"/>
+          </linearGradient>
+        </defs>
+        <rect width="380" height="370" fill="#3a2e22"/>
+        <!-- Room corner with freshly painted window -->
+        <!-- Wall -->
+        <rect x="0" y="0" width="380" height="370" fill="#c8b898"/>
+        <!-- Window frame freshly painted white -->
+        <rect x="60" y="30" width="260" height="300" fill="#e8e0d0" rx="1"/>
+        <rect x="68" y="38" width="244" height="284" fill="url(#freshpaint)"/>
+        <!-- Glazing details -->
+        <rect x="68" y="182" width="244" height="4" fill="#d8d0be"/>
+        <rect x="188" y="38" width="4" height="144" fill="#d8d0be"/>
+        <rect x="188" y="186" width="4" height="136" fill="#d8d0be"/>
+        <!-- Fresh paint stroke effect on frame top -->
+        <rect x="60" y="30" width="260" height="6" fill="#ede8dc" rx="1"/>
+        <!-- Paint brush stroke suggestion -->
+        <path d="M320 60 Q330 70 326 80" stroke="rgba(255,255,255,0.4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- Sill with fresh gloss -->
+        <rect x="50" y="325" width="280" height="16" fill="#ede8dc" rx="1"/>
+        <rect x="50" y="326" width="280" height="4" fill="rgba(255,255,255,0.3)" rx="1"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Decorating</div>
+        <div class="gcard-title">Full Gloss Repaint, Sills &amp; Frames</div>
+        <div class="gcard-loc">Brighton, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="gcard g6" data-cat="carpentry" data-id="5">
+      <svg class="artwork" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="timber" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#7a5c38"/>
+            <stop offset="40%" stop-color="#8c6c48"/>
+            <stop offset="100%" stop-color="#6a4e2e"/>
+          </linearGradient>
+        </defs>
+        <rect width="380" height="380" fill="#1e1a14"/>
+        <!-- Timber staircase balustrade -->
+        <!-- Handrail -->
+        <path d="M20 300 Q190 120 360 60" fill="none" stroke="url(#timber)" stroke-width="14" stroke-linecap="round"/>
+        <!-- Balusters -->
+        <line x1="60" y1="380" x2="80" y2="275" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <line x1="110" y1="380" x2="128" y2="248" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <line x1="160" y1="380" x2="176" y2="222" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <line x1="210" y1="380" x2="224" y2="196" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <line x1="258" y1="380" x2="270" y2="168" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <line x1="305" y1="380" x2="315" y2="142" stroke="#7a5c38" stroke-width="6" stroke-linecap="round"/>
+        <!-- Newel post -->
+        <rect x="14" y="295" width="22" height="85" fill="url(#timber)" rx="2"/>
+        <rect x="10" y="288" width="30" height="10" fill="#8a6848" rx="1"/>
+        <!-- Grain lines -->
+        <path d="M40 350 Q60 340 80 355" stroke="rgba(255,220,160,0.12)" stroke-width="1.5" fill="none"/>
+        <path d="M120 340 Q140 330 160 345" stroke="rgba(255,220,160,0.12)" stroke-width="1.5" fill="none"/>
+        <path d="M200 320 Q220 310 240 325" stroke="rgba(255,220,160,0.12)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Carpentry</div>
+        <div class="gcard-title">Bespoke Staircase Balustrade</div>
+        <div class="gcard-loc">Sevenoaks, Kent</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="gcard g7" data-cat="refurb" data-id="6">
+      <svg class="artwork" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="seal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c0d4dc"/><stop offset="100%" stop-color="#8aa8b4"/></linearGradient>
+        </defs>
+        <rect width="380" height="380" fill="#2a2218"/>
+        <!-- Sash window close-up, draught seal detail -->
+        <rect x="30" y="20" width="320" height="340" fill="#b8a47a" rx="1"/>
+        <rect x="40" y="30" width="300" height="320" fill="url(#seal)"/>
+        <rect x="40" y="196" width="300" height="8" fill="#b0946a"/>
+        <!-- Meeting rail close-up -->
+        <rect x="38" y="188" width="304" height="24" fill="#c4ae84"/>
+        <!-- Draught brush seal (yellow) -->
+        <rect x="40" y="210" width="300" height="4" fill="#d4a83c" opacity="0.8"/>
+        <!-- Sash lift hardware -->
+        <rect x="156" y="240" width="68" height="18" fill="#8a8068" rx="9"/>
+        <rect x="160" y="243" width="60" height="12" fill="#a09880" rx="6"/>
+        <!-- Glazing bar -->
+        <rect x="188" y="30" width="4" height="158" fill="#c4ae84"/>
+        <rect x="188" y="214" width="4" height="136" fill="#c4ae84"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Refurbishment &amp; Draught-Proofing</div>
+        <div class="gcard-title">Meeting Rail Seal &amp; Cord Replacement</div>
+        <div class="gcard-loc">Eastbourne, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="gcard g8" data-cat="bespoke" data-id="7">
+      <svg class="artwork" viewBox="0 0 380 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="doorbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3c3020"/><stop offset="100%" stop-color="#2a2018"/></linearGradient>
+          <linearGradient id="doorwood" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8c6c3c"/><stop offset="50%" stop-color="#a07c4c"/><stop offset="100%" stop-color="#7c5c2c"/></linearGradient>
+        </defs>
+        <rect width="380" height="310" fill="url(#doorbg)"/>
+        <!-- Georgian front door with fanlight -->
+        <!-- Fanlight arch -->
+        <path d="M80 120 L80 50 Q80 20 190 20 Q300 20 300 50 L300 120 Z" fill="#b4a07c" />
+        <path d="M86 120 L86 52 Q86 28 190 28 Q294 28 294 52 L294 120 Z" fill="#c0d8e4" opacity="0.85"/>
+        <!-- Fanlight radial bars -->
+        <line x1="190" y1="120" x2="190" y2="28" stroke="#b4a07c" stroke-width="3"/>
+        <line x1="190" y1="120" x2="110" y2="45" stroke="#b4a07c" stroke-width="2.5"/>
+        <line x1="190" y1="120" x2="270" y2="45" stroke="#b4a07c" stroke-width="2.5"/>
+        <line x1="190" y1="120" x2="86" y2="82" stroke="#b4a07c" stroke-width="2"/>
+        <line x1="190" y1="120" x2="294" y2="82" stroke="#b4a07c" stroke-width="2"/>
+        <!-- Door body -->
+        <rect x="80" y="118" width="220" height="178" fill="url(#doorwood)" rx="1"/>
+        <!-- Panels -->
+        <rect x="92" y="130" width="196" height="60" fill="none" stroke="#6a4e2c" stroke-width="2" rx="1"/>
+        <rect x="96" y="134" width="188" height="52" fill="#6a4a28" rx="1"/>
+        <rect x="92" y="202" width="90" height="82" fill="none" stroke="#6a4e2c" stroke-width="2" rx="1"/>
+        <rect x="96" y="206" width="82" height="74" fill="#6a4a28" rx="1"/>
+        <rect x="198" y="202" width="90" height="82" fill="none" stroke="#6a4e2c" stroke-width="2" rx="1"/>
+        <rect x="202" y="206" width="82" height="74" fill="#6a4a28" rx="1"/>
+        <!-- Knocker & letterbox -->
+        <circle cx="270" cy="250" r="12" fill="#d4a840"/>
+        <circle cx="270" cy="250" r="8" fill="#e0b850"/>
+        <rect x="148" y="268" width="84" height="18" fill="#c09030" rx="2"/>
+        <!-- Step -->
+        <rect x="60" y="296" width="260" height="14" fill="#6a5a40" rx="1"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
+        <div class="gcard-title">Georgian Front Door with Fanlight</div>
+        <div class="gcard-loc">Blackheath, London</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="gcard g9" data-cat="glass" data-id="8">
+      <svg class="artwork" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="newglass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d0e8f0"/>
+            <stop offset="50%" stop-color="#a8ccd8"/>
+            <stop offset="100%" stop-color="#c4e0ec"/>
+          </linearGradient>
+        </defs>
+        <rect width="380" height="380" fill="#1e1c18"/>
+        <!-- Slim double glazed unit, modern spacer bar visible -->
+        <rect x="40" y="30" width="300" height="320" fill="#c0a870" rx="1"/>
+        <!-- Outer pane -->
+        <rect x="50" y="40" width="280" height="300" fill="url(#newglass)" opacity="0.7"/>
+        <!-- Spacer bar (warm edge) -->
+        <rect x="54" y="44" width="272" height="8" fill="#e0c060" opacity="0.8"/>
+        <rect x="54" y="328" width="272" height="8" fill="#e0c060" opacity="0.8"/>
+        <rect x="54" y="44" width="8" height="292" fill="#e0c060" opacity="0.8"/>
+        <rect x="318" y="44" width="8" height="292" fill="#e0c060" opacity="0.8"/>
+        <!-- Inner pane -->
+        <rect x="62" y="52" width="256" height="276" fill="url(#newglass)" opacity="0.6"/>
+        <!-- Reflection -->
+        <path d="M70 60 Q110 52 150 58 Q130 80 90 76 Z" fill="white" opacity="0.18"/>
+        <!-- Cross glazing bar for period look -->
+        <rect x="50" y="194" width="280" height="5" fill="#c0a870"/>
+        <rect x="188" y="40" width="5" height="300" fill="#c0a870"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Glass Changes &amp; Upgrades</div>
+        <div class="gcard-title">Slim Double Glazing, Period Style</div>
+        <div class="gcard-loc">Canterbury, Kent</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="gcard g10" data-cat="ironmongery" data-id="9">
+      <svg class="artwork" viewBox="0 0 360 370" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="360" height="370" fill="#242018"/>
+        <!-- Sash fastener close-up -->
+        <rect x="60" y="60" width="240" height="250" fill="#2e2820"/>
+        <!-- Two meeting rails -->
+        <rect x="40" y="150" width="280" height="22" fill="#b09870"/>
+        <rect x="40" y="172" width="280" height="22" fill="#c0a87a"/>
+        <!-- Sash fastener (cam lock) -->
+        <rect x="148" y="142" width="64" height="46" fill="#4a4030" rx="2"/>
+        <!-- Base plate -->
+        <rect x="154" y="148" width="52" height="34" fill="#c8a030" rx="1"/>
+        <!-- Cam -->
+        <ellipse cx="180" cy="165" rx="14" ry="10" fill="#d4aa3a"/>
+        <circle cx="180" cy="165" r="5" fill="#b89020"/>
+        <!-- Screws -->
+        <circle cx="162" cy="155" r="3" fill="#b89020"/>
+        <circle cx="198" cy="155" r="3" fill="#b89020"/>
+        <circle cx="162" cy="177" r="3" fill="#b89020"/>
+        <circle cx="198" cy="177" r="3" fill="#b89020"/>
+        <!-- Highlight -->
+        <ellipse cx="176" cy="160" rx="6" ry="4" fill="rgba(255,240,180,0.3)"/>
+        <!-- Label shadow -->
+        <text x="180" y="310" font-family="Georgia, serif" font-size="11" fill="rgba(168,137,92,0.5)" text-anchor="middle" letter-spacing="3">BRASS SASH FASTENER</text>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">New Ironmongery</div>
+        <div class="gcard-title">Brass Sash Fasteners, Full Set</div>
+        <div class="gcard-loc">Rye, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="gcard g11" data-cat="decorating" data-id="10">
+      <svg class="artwork" viewBox="0 0 500 370" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="roomwall" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#d8cfc0"/><stop offset="100%" stop-color="#c4bbb0"/></linearGradient>
+        </defs>
+        <!-- Room interior with freshly painted woodwork -->
+        <rect width="500" height="370" fill="url(#roomwall)"/>
+        <!-- Dado rail -->
+        <rect x="0" y="200" width="500" height="6" fill="#c0b4a0" rx="1"/>
+        <rect x="0" y="205" width="500" height="2" fill="#b0a490"/>
+        <!-- Lower wall (deeper tone) -->
+        <rect x="0" y="207" width="500" height="163" fill="#b8ae9e"/>
+        <!-- Skirting board -->
+        <rect x="0" y="340" width="500" height="30" fill="#ede8dc" rx="0"/>
+        <rect x="0" y="340" width="500" height="4" fill="#f0ece0"/>
+        <!-- Window reveal, freshly white -->
+        <rect x="160" y="0" width="180" height="210" fill="#e8e2d4"/>
+        <rect x="170" y="10" width="160" height="190" fill="#c8dce8" opacity="0.8"/>
+        <!-- Window frame bright white -->
+        <rect x="162" y="2" width="176" height="10" fill="#f0ece0" rx="0"/>
+        <rect x="162" y="2" width="10" height="208" fill="#f0ece0"/>
+        <rect x="328" y="2" width="10" height="208" fill="#f0ece0"/>
+        <!-- Gloss reflection on sill -->
+        <rect x="152" y="200" width="196" height="14" fill="#ede6d8"/>
+        <rect x="152" y="200" width="196" height="4" fill="rgba(255,255,255,0.35)"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Decorating</div>
+        <div class="gcard-title">Interior Woodwork, Dado &amp; Skirtings</div>
+        <div class="gcard-loc">Tonbridge, Kent</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="gcard g12" data-cat="bespoke" data-id="11">
+      <svg class="artwork" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="orangery" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c8e0e8"/><stop offset="100%" stop-color="#a4c0ce"/></linearGradient>
+        </defs>
+        <rect width="500" height="380" fill="#2a2418"/>
+        <!-- French doors pair -->
+        <rect x="30" y="20" width="440" height="345" fill="#3a3020"/>
+        <!-- Left door -->
+        <rect x="40" y="30" width="208" height="335" fill="#b0986a" rx="1"/>
+        <rect x="48" y="38" width="192" height="310" fill="url(#orangery)"/>
+        <!-- Left door glazing bars -->
+        <rect x="48" y="140" width="192" height="4" fill="#b0986a"/>
+        <rect x="48" y="240" width="192" height="4" fill="#b0986a"/>
+        <rect x="142" y="38" width="4" height="310" fill="#b0986a"/>
+        <!-- Right door -->
+        <rect x="252" y="30" width="208" height="335" fill="#b0986a" rx="1"/>
+        <rect x="260" y="38" width="192" height="310" fill="url(#orangery)"/>
+        <rect x="260" y="140" width="192" height="4" fill="#b0986a"/>
+        <rect x="260" y="240" width="192" height="4" fill="#b0986a"/>
+        <rect x="354" y="38" width="4" height="310" fill="#b0986a"/>
+        <!-- Centre astragal -->
+        <rect x="246" y="28" width="8" height="337" fill="#c4aa7c" rx="1"/>
+        <!-- Handles -->
+        <circle cx="246" cy="190" r="6" fill="#d4a840"/>
+        <circle cx="254" cy="190" r="6" fill="#d4a840"/>
+        <!-- Threshold -->
+        <rect x="30" y="362" width="440" height="10" fill="#8a7850" rx="1"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
+        <div class="gcard-title">Hardwood French Doors, Orangery</div>
+        <div class="gcard-loc">Maidstone, Kent</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 13 -->
+    <div class="gcard g13" data-cat="carpentry" data-id="12">
+      <svg class="artwork" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="shelf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a07848"/><stop offset="100%" stop-color="#7a5828"/></linearGradient>
+        </defs>
+        <rect width="360" height="320" fill="#1a1610"/>
+        <!-- Built-in shelving alcove -->
+        <rect x="20" y="10" width="320" height="300" fill="#28201a"/>
+        <!-- Shelves -->
+        <rect x="20" y="80" width="320" height="12" fill="url(#shelf)" rx="1"/>
+        <rect x="20" y="160" width="320" height="12" fill="url(#shelf)" rx="1"/>
+        <rect x="20" y="240" width="320" height="12" fill="url(#shelf)" rx="1"/>
+        <!-- Side uprights -->
+        <rect x="20" y="10" width="16" height="300" fill="url(#shelf)"/>
+        <rect x="324" y="10" width="16" height="300" fill="url(#shelf)"/>
+        <!-- Top rail -->
+        <rect x="20" y="10" width="320" height="14" fill="#b08858" rx="1"/>
+        <!-- Base -->
+        <rect x="20" y="296" width="320" height="14" fill="#8a6438" rx="1"/>
+        <!-- Shelf items suggestion (books) -->
+        <rect x="36" y="90" width="18" height="66" fill="#5a3c24"/>
+        <rect x="56" y="96" width="14" height="60" fill="#8c6840"/>
+        <rect x="72" y="90" width="22" height="66" fill="#3c2c18"/>
+        <rect x="96" y="92" width="16" height="64" fill="#6a5030"/>
+        <!-- Grain detail on shelf edge -->
+        <line x1="20" y1="86" x2="340" y2="86" stroke="rgba(255,200,120,0.08)" stroke-width="1.5"/>
+        <line x1="20" y1="166" x2="340" y2="166" stroke="rgba(255,200,120,0.08)" stroke-width="1.5"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Carpentry</div>
+        <div class="gcard-title">Alcove Shelving, Bespoke Fit-Out</div>
+        <div class="gcard-loc">Hastings, East Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+    <!-- Card 14 -->
+    <div class="gcard g14" data-cat="refurb" data-id="13">
+      <svg class="artwork" viewBox="0 0 380 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="sky14" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a8c0cc"/><stop offset="100%" stop-color="#d4cbb8"/></linearGradient>
+        </defs>
+        <rect width="380" height="320" fill="#2e2820"/>
+        <!-- Bay window exterior view -->
+        <!-- Centre section -->
+        <rect x="120" y="20" width="140" height="280" fill="#b0986a" rx="1"/>
+        <rect x="128" y="28" width="124" height="264" fill="url(#sky14)"/>
+        <rect x="128" y="158" width="124" height="5" fill="#b0986a"/>
+        <rect x="188" y="28" width="4" height="130" fill="#b0986a"/>
+        <rect x="188" y="163" width="4" height="129" fill="#b0986a"/>
+        <!-- Left angled section -->
+        <rect x="30" y="50" width="100" height="250" fill="#a88860" rx="1" transform="skewX(8)"/>
+        <rect x="38" y="58" width="84" height="234" fill="url(#sky14)" transform="skewX(8)"/>
+        <!-- Right angled section -->
+        <rect x="250" y="50" width="100" height="250" fill="#a88860" rx="1" transform="skewX(-8)"/>
+        <rect x="258" y="58" width="84" height="234" fill="url(#sky14)" transform="skewX(-8)"/>
+        <!-- Sill running across -->
+        <rect x="22" y="296" width="336" height="16" fill="#c0a878" rx="1"/>
+        <rect x="22" y="296" width="336" height="5" fill="rgba(255,255,255,0.1)"/>
+      </svg>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Refurbishment &amp; Draught-Proofing</div>
+        <div class="gcard-title">Bay Window, Three-Section Overhaul</div>
+        <div class="gcard-loc">Worthing, West Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"/></svg></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MID CALLOUT -->
+<div class="mid-callout fade-up">
+  <div class="mid-callout-text">"Every home has a story written in its woodwork — we help you keep telling it."</div>
+  <a href="index.html#contact" class="mid-callout-action">Book a Free Consultation</a>
+</div>
+
+<!-- SERVICES STRIP -->
+<section class="services-strip fade-up">
+  <div class="services-strip-header">
+    <div class="strip-eyebrow">What We Do</div>
+    <div class="strip-title">Six Services, One Standard</div>
+  </div>
+  <div class="services-list">
+    <div class="svc-row">
+      <div class="svc-n">01</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">Bespoke Windows &amp; Doors</div>
+      <div class="svc-detail">Handcrafted timber joinery made to match or complement your property — period replicas or clean contemporary designs.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">02</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">Refurbishment &amp; Draught-Proofing</div>
+      <div class="svc-detail">Cords replaced, pulleys renewed, seals fitted. Your original sashes restored to smooth, silent, draught-free operation.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">03</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">Glass Changes &amp; Upgrades</div>
+      <div class="svc-detail">Single-pane replacements, slim double glazing, and specialist heritage glass that keeps the look while cutting heat loss.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">04</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">New Ironmongery</div>
+      <div class="svc-detail">Brass sash fasteners, pulleys, knobs, knockers, and letter boxes — sourced and fitted to the period of your home.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">05</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">Decorating</div>
+      <div class="svc-detail">High-gloss and satin finishes on frames, sills, skirtings, and architraves — prep done right so the finish lasts.</div>
+    </div>
+    <div class="svc-row">
+      <div class="svc-n">06</div>
+      <div class="svc-bar"></div>
+      <div class="svc-name">Carpentry</div>
+      <div class="svc-detail">Bespoke shelving, staircases, architraves, and joinery — anything that needs a skilled hand and an eye for timber.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner" id="lbInner">
+    <div class="lb-visual" id="lbVisual"></div>
+    <div class="lb-info">
+      <div class="lb-tag" id="lbTag"></div>
+      <div class="lb-title" id="lbTitle"></div>
+      <div class="lb-loc" id="lbLoc"></div>
+      <div class="lb-desc" id="lbDesc"></div>
+      <a href="index.html#contact" class="lb-cta">Get a Quote for This</a>
+    </div>
+    <button class="lb-close" id="lbClose">✕</button>
+    <div class="lb-nav">
+      <button class="lb-nav-btn" id="lbPrev">←</button>
+      <button class="lb-nav-btn" id="lbNext">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">JR <span>Sash</span> Solutions</div>
+  <div class="footer-mid">© 2025 JR Sash Solutions · Joshua Rumble · info@jrsashsolutions.co.uk</div>
+  <div class="footer-right">Sussex · Kent · London</div>
+</footer>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx+'px'; cursor.style.top = my+'px'; });
+(function animRing() { rx += (mx-rx)*0.14; ry += (my-ry)*0.14; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(animRing); })();
+document.querySelectorAll('a,button,.gcard,.filter-btn,.svc-row').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').style.padding = window.scrollY > 60 ? '0.9rem 4rem' : '1.4rem 4rem';
+});
+
+// Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.gcard');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    cards.forEach(c => {
+      if (cat === 'all' || c.dataset.cat === cat) c.classList.remove('hidden');
+      else c.classList.add('hidden');
+    });
+  });
+});
+
+// Lightbox data
+const projectData = [
+  { tag:'Bespoke Windows & Doors', title:'Georgian Bay Window Restoration', loc:'Lewes, East Sussex', desc:'Full replacement of a Georgian bay window in solid hardwood, matching original moulding profiles and glazing bar widths. Slim double glazing fitted throughout.' },
+  { tag:'Refurbishment & Draught-Proofing', title:'Victorian Sash Pair, Full Refurb', loc:'Hove, East Sussex', desc:'Both windows stripped back, cords and weights replaced, sash channels re-lined and draught-proof brush seals fitted to meeting rails and jambs.' },
+  { tag:'Glass Changes & Upgrades', title:'Arched Fanlight, New Glazing', loc:'Tunbridge Wells, Kent', desc:'Original glass removed and replaced with hand-made heritage glass to maintain the authentic appearance required under planning conditions.' },
+  { tag:'New Ironmongery', title:'Brass Hardware Renewal', loc:'Greenwich, London', desc:'All ironmongery replaced with period-appropriate solid brass: knob set, letter box, knocker, and numerals — sourced and fitted in a single day.' },
+  { tag:'Decorating', title:'Full Gloss Repaint, Sills & Frames', loc:'Brighton, East Sussex', desc:'Exterior and interior woodwork prepared, sanded, primed, and finished in traditional oil-based gloss for a durable, period-correct result.' },
+  { tag:'Carpentry', title:'Bespoke Staircase Balustrade', loc:'Sevenoaks, Kent', desc:'Replacement balustrade designed and crafted in solid oak to match existing newel post profiles, with turned balusters and a continuous handrail.' },
+  { tag:'Refurbishment & Draught-Proofing', title:'Meeting Rail Seal & Cord Replacement', loc:'Eastbourne, East Sussex', desc:'Sash cords renewed with pre-stretched linen cord, weights re-balanced, and high-grade draught-proof brush seals installed to meeting rails.' },
+  { tag:'Bespoke Windows & Doors', title:'Georgian Front Door with Fanlight', loc:'Blackheath, London', desc:'New front door in solid engineered oak, featuring hand-cut fanlight glazing bars radiating from the impost — made to match the original 1840s profile.' },
+  { tag:'Glass Changes & Upgrades', title:'Slim Double Glazing, Period Style', loc:'Canterbury, Kent', desc:'Slim-line double glazed units fitted into existing timber sashes, maintaining the slender sight lines of the original single-glazed windows.' },
+  { tag:'New Ironmongery', title:'Brass Sash Fasteners, Full Set', loc:'Rye, East Sussex', desc:'Eight sash fasteners replaced across a terraced house — solid cast brass fitch fasteners fitted with matching sash lifts and pulley spindles.' },
+  { tag:'Decorating', title:'Interior Woodwork, Dado & Skirtings', loc:'Tonbridge, Kent', desc:'Complete interior repaint of all woodwork: windows, doors, skirtings, dado rail, and architraves in a sympathetic period palette.' },
+  { tag:'Bespoke Windows & Doors', title:'Hardwood French Doors, Orangery', loc:'Maidstone, Kent', desc:'Pair of hardwood French doors with slim double glazing and period astragal bars, made to fill an existing orangery opening.' },
+  { tag:'Carpentry', title:'Alcove Shelving, Bespoke Fit-Out', loc:'Hastings, East Sussex', desc:'Built-in shelving across three alcoves in solid oak with adjustable shelf pins, flush-fitted between period chimney breasts.' },
+  { tag:'Refurbishment & Draught-Proofing', title:'Bay Window, Three-Section Overhaul', loc:'Worthing, West Sussex', desc:'Complete overhaul of a three-section Victorian bay: cords replaced in all six sashes, draught seals throughout, and exterior woodwork repainted.' },
+];
+
+// Get visual SVG from card
+const lightbox = document.getElementById('lightbox');
+let currentId = 0;
+
+function openLightbox(id) {
+  currentId = id;
+  const d = projectData[id];
+  const card = document.querySelector(`.gcard[data-id="${id}"]`);
+  document.getElementById('lbTag').textContent = d.tag;
+  document.getElementById('lbTitle').textContent = d.title;
+  document.getElementById('lbLoc').textContent = '↳ ' + d.loc;
+  document.getElementById('lbDesc').textContent = d.desc;
+  const svg = card.querySelector('svg.artwork');
+  document.getElementById('lbVisual').innerHTML = svg ? svg.outerHTML : '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+cards.forEach(card => {
+  card.addEventListener('click', () => openLightbox(+card.dataset.id));
+});
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.getElementById('lbPrev').addEventListener('click', () => { currentId = (currentId - 1 + projectData.length) % projectData.length; openLightbox(currentId); });
+document.getElementById('lbNext').addEventListener('click', () => { currentId = (currentId + 1) % projectData.length; openLightbox(currentId); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click(); if (e.key === 'ArrowRight') document.getElementById('lbNext').click(); });
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
