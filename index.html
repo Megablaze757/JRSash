@@ -71,7 +71,6 @@ nav {
 .hero-left::before { content: ''; position: absolute; top: 15%; left: -60px; width: 280px; height: 280px; border: 1px solid var(--border); border-radius: 50%; pointer-events: none; }
 .hero-right { position: relative; overflow: hidden; background: var(--mid); order: 1; }
 .hero-img-wrap { position: absolute; inset: 0; }
-.hero-img-wrap svg { width: 100%; height: 100%; }
 .hero-img-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(26,23,20,0.3) 0%, transparent 60%); }
 .hero-badge { position: absolute; bottom: 2.5rem; right: 2.5rem; background: rgba(245,240,232,0.95); padding: 1.3rem 1.6rem; border-left: 3px solid var(--gold); max-width: 210px; }
 .hero-badge-offer { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
@@ -121,7 +120,7 @@ nav {
 .svc-link { font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
 .svc-link::after { content: '→'; font-size: 0.85rem; }
 
-/* ── WHY ── */
+/* ── WHY (ABOUT ME SECTION) ── */
 .why-section { background: var(--dark); display: grid; grid-template-columns: 1fr 1fr; }
 .why-left { padding: 5rem; display: flex; flex-direction: column; justify-content: center; }
 .why-left .section-tag { color: var(--gold); }
@@ -141,13 +140,12 @@ nav {
 .testimonial-author { font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 .stars { color: var(--gold); font-size: 0.78rem; margin-bottom: 0.9rem; }
 
-/* ── TESTIMONIALS SECTION (NEW) ── */
+/* ── TESTIMONIALS SECTION (Nextdoor Reviews) ── */
 .testimonials-section { background: var(--warm-white); padding: 5rem 5rem; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; margin-top: 2.5rem; }
 .testimonial-card-nd { background: var(--cream); border: 1px solid var(--border); padding: 1.8rem; position: relative; display: flex; flex-direction: column; transition: transform 0.2s ease; }
 .testimonial-card-nd:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.03); }
 .testimonial-card-nd::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 0.5; color: var(--gold); opacity: 0.3; position: absolute; top: 0.8rem; left: 1.2rem; pointer-events: none; }
-.testimonial-stars-nd { color: var(--gold); font-size: 0.9rem; letter-spacing: 0.12em; margin-bottom: 0.9rem; white-space: nowrap; display: inline-block; width: auto; font-weight: 400; }
 .testimonial-text-nd { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-weight: 300; font-style: italic; line-height: 1.65; color: var(--mid); margin-bottom: 1.2rem; position: relative; z-index: 1; flex: 1; }
 .testimonial-author-nd { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); margin-top: 0.5rem; }
 .testimonial-location-nd { font-size: 0.6rem; color: var(--stone); margin-top: 0.2rem; }
@@ -201,9 +199,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 .footer-left { font-size: 0.68rem; color: #5a5248; letter-spacing: 0.08em; }
 .footer-right { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5a5248; }
 
-.fade-up { opacity: 1; }
-
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.4rem; }
   .nav-links, .nav-cta { display: none; }
@@ -219,44 +215,31 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .hero-actions .btn-primary, .hero-actions .btn-ghost { text-align: center; padding: 1rem; }
   .hero-stats { gap: 1.6rem; margin-top: 2.5rem; }
   .hero-badge { bottom: 0.8rem; right: 0.8rem; max-width: 160px; padding: 0.9rem 1.1rem; }
-  .hero-badge-text { font-size: 0.88rem; }
-  .hero-badge-sub { display: none; }
-  .marquee-item { font-size: 0.56rem; padding: 0 1.2rem; }
   .section { padding: 3rem 1.4rem; }
-  .section-title { font-size: clamp(1.8rem, 6vw, 2.4rem); }
   .services-grid { grid-template-columns: 1fr; }
   .service-card { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1.4rem; }
-  .service-card:last-child { border-bottom: none; }
   .why-section { grid-template-columns: 1fr; }
   .why-left { padding: 3rem 1.4rem; }
   .why-right { padding: 2.5rem 1.4rem; }
-  .testimonial-card { max-width: 100%; padding: 2rem 1.4rem; }
   .testimonials-section { padding: 3rem 1.4rem; }
   .testimonials-grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem 1rem; }
   .process-steps::before { display: none; }
   .process-step { padding: 0 0.4rem; }
   .offer-banner { padding: 2.5rem 1.4rem; flex-direction: column; text-align: center; gap: 1.5rem; }
-  .offer-pct { font-size: 3rem; }
-  .offer-mid { max-width: 100%; }
   .offer-actions { align-items: center; width: 100%; }
-  .offer-actions .btn-primary { width: 100%; text-align: center; }
   .contact-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.4rem; }
   .form-row { grid-template-columns: 1fr; }
   .form-submit { width: 100%; text-align: center; }
   footer { padding: 2rem 1.4rem; flex-direction: column; text-align: center; gap: 0.6rem; }
-  .testimonial-stars-nd { white-space: nowrap; display: inline-block; width: auto; font-size: 0.85rem; }
   .testimonial-likes-nd { white-space: normal; flex-wrap: wrap; }
-}
-@media (max-width: 480px) {
-  .process-steps { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <nav id="mainNav">
-  <a href="/index" class="nav-logo">
+  <a href="#" class="nav-logo">
     <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1" y="1" width="36" height="36" stroke="#1a1714" stroke-width="1.5"/>
       <rect x="5" y="5" width="28" height="28" stroke="#1a1714" stroke-width="0.8"/>
@@ -272,7 +255,6 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">About</a></li>
-    <li><a href="/gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -284,17 +266,17 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#services" class="mob-link">Services</a>
-  <a href="#why" class="mob-link">About</a>
-  <a href="/gallery" class="mob-link">Gallery</a>
-  <a href="#contact" class="mob-link">Contact</a>
+  <a href="#services">Services</a>
+  <a href="#why">About</a>
+  <a href="#contact">Contact</a>
   <div class="mob-cta-wrap">
     <a href="tel:07724478519" class="mob-cta">Call 07724 478519</a>
     <span class="mob-email">info@jrsashsolutions.co.uk</span>
   </div>
 </div>
 
-<section class="hero" id="home">
+<!-- Hero Section -->
+<section class="hero">
   <div class="hero-right">
     <div class="hero-img-wrap">
       <img src="images/img03.jpg" alt="Period bay window by JR Sash Solutions" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
@@ -312,7 +294,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     <p class="hero-sub">Restored, repaired, and reimagined for period and modern properties across Sussex, Kent &amp; London.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Free Consultation</a>
-      <a href="/gallery" class="btn-ghost">View Our Work</a>
+      <a href="#contact" class="btn-ghost">View Our Work</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">8+</div><div class="stat-label">Years' Experience</div></div>
@@ -343,12 +325,13 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   </div>
 </div>
 
+<!-- Services Section -->
 <section class="section" id="services">
-  <div class="section-header fade-up">
+  <div class="section-header">
     <div class="section-tag">What We Do</div>
     <h2 class="section-title">Craftsmanship in<br>Every Detail</h2>
   </div>
-  <div class="services-grid fade-up">
+  <div class="services-grid">
     <div class="service-card">
       <div class="svc-num">01</div>
       <div class="svc-icon-line"></div>
@@ -373,49 +356,60 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   </div>
 </section>
 
+<!-- About Me Section (Fixed alignment) -->
 <section class="why-section" id="why">
-  <div class="why-left fade-up">
-    <div class="section-tag">Why JR Sash</div>
-    <h2 class="section-title">Honest Advice.<br>Guaranteed Work.</h2>
-    <div class="why-list">
-      <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#a8895c" stroke-width="1.5"/></svg></div><div class="why-text"><strong>Fully Insured &amp; Guaranteed</strong>Every job is covered, every finish stands behind our name.</div></div>
-      <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#a8895c" stroke-width="1.5"/></svg></div><div class="why-text"><strong>Period &amp; Heritage Specialists</strong>We understand listed buildings and conservation areas inside out.</div></div>
-      <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#a8895c" stroke-width="1.5"/></svg></div><div class="why-text"><strong>Repair Before Replace</strong>We'll always tell you honestly if restoration is the better, cheaper option.</div></div>
-      <div class="why-item"><div class="why-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2.5" stroke="#a8895c" stroke-width="1.5"/></svg></div><div class="why-text"><strong>Attention to Every Finish</strong>We leave your home clean, tidy, and exactly as we found it — except better.</div></div>
+  <div class="why-left">
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Seven Years of Craft.<br/>Two Reputable Companies.<br/><em>One Standard.</em></h2>
+    <div class="why-list" style="margin-top:0">
+      <p style="color: var(--stone); font-size: 0.86rem; line-height: 1.85; margin-bottom: 1.2rem;">I'm Josh — I'm 25 and I've been fitting sash windows for 7 years, trained with two of the most reputable companies in the trade where standards were extremely high. In that time I've experienced everything from simple glass changes all the way to full bay rebuilds.</p>
+      <p style="color: var(--stone); font-size: 0.86rem; line-height: 1.85; margin-bottom: 1.2rem;">I also offer new joinery that can be exactly like-for-like to suit conservation areas, allowing you to have double glazing while keeping the history of your home intact.</p>
+      <p style="color: var(--stone); font-size: 0.86rem; line-height: 1.85; margin-bottom: 1.2rem;">Every job I take on gets the same care and attention — whether it's a single cord replacement or a complete period restoration. Thanks for taking the time to look through my work.</p>
+      <p style="margin-top:1.2rem; font-style:italic; color:var(--gold);">Kind regards, Josh</p>
     </div>
   </div>
-  <div class="why-right fade-up">
-    <div class="testimonial-card">
-      <div class="stars">★ ★ ★ ★ ★</div>
-      <p class="testimonial-text">He got both windows back to full working order — they now open and close smoothly and look much better. Professional throughout, efficient, and left everything clean and tidy.</p>
-      <div class="testimonial-author">Verified Customer — Sussex</div>
+  <div class="why-right">
+    <div style="width:100%">
+      <div class="about-stat" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(200,184,154,0.14); border-top: 1px solid rgba(200,184,154,0.14);">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: var(--gold); flex-shrink: 0; width: 4rem;">7</div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--stone);"><strong style="color: var(--cream); display: block; margin-bottom: 0.2rem;">Years in the trade</strong>Trained with two of Sussex's most reputable joinery firms before founding JR Sash Solutions.</div>
+      </div>
+      <div class="about-stat" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(200,184,154,0.14);">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: var(--gold); flex-shrink: 0; width: 4rem;">3</div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--stone);"><strong style="color: var(--cream); display: block; margin-bottom: 0.2rem;">Counties covered</strong>All of Sussex, Kent, and London — heritage properties and modern homes alike.</div>
+      </div>
+      <div class="about-stat" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(200,184,154,0.14);">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--gold); flex-shrink: 0; width: 4rem; letter-spacing: 0.15em;">★★★★★</div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--stone);"><strong style="color: var(--cream); display: block; margin-bottom: 0.2rem;">Five-star rated on Nextdoor</strong>Verified reviews from real customers across the region.</div>
+      </div>
+      <div class="about-stat" style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.2rem 0; border-bottom: none;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 300; color: var(--gold); flex-shrink: 0; width: 4rem;">5%</div>
+        <div style="font-size: 0.84rem; line-height: 1.6; color: var(--stone);"><strong style="color: var(--cream); display: block; margin-bottom: 0.2rem;">Off for website visitors</strong>Mention this website when you call or email and we'll take 5% off your quote.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- NEW TESTIMONIALS SECTION (Nextdoor reviews) -->
-<section class="testimonials-section fade-up">
+<!-- Nextdoor Testimonials Section -->
+<section class="testimonials-section">
   <div class="section-header" style="text-align:center;">
     <div class="section-tag" style="justify-content:center;">Nextdoor Reviews</div>
     <h2 class="section-title" style="text-align:center;">What Our Customers Say</h2>
   </div>
   <div class="testimonials-grid">
     <div class="testimonial-card-nd">
-      <div class="testimonial-stars-nd">★★★★★</div>
       <p class="testimonial-text-nd">I'm really happy with the work Josh at JR Sash Solutions did on my sash windows. He got both of them back to full working order and they now open and close smoothly and look much better. He was professional throughout, worked efficiently, and left everything clean and tidy when he finished. I'd definitely recommend JR Sash Solutions to anyone needing sash window repairs or restoration.</p>
       <div class="testimonial-author-nd">B. C.</div>
       <div class="testimonial-location-nd">Bexhill-on-Sea, England · 2 Mar</div>
       <div class="testimonial-likes-nd">✓ 5 people found this helpful</div>
     </div>
     <div class="testimonial-card-nd">
-      <div class="testimonial-stars-nd">★★★★★</div>
       <p class="testimonial-text-nd">Josh restored four sash windows (including new hardwood sills) and completely replaced another large window with brand new joinery. All work was done to an extremely high standard at a fair price and in good time and, most importantly, in a way that fully preserved the character of the windows. It is very detailed work and it was gratifying to see such traditional skills alive and well.</p>
       <div class="testimonial-author-nd">J. M.</div>
       <div class="testimonial-location-nd">Hastings, England · 7 Feb</div>
       <div class="testimonial-likes-nd">✓ 8 people found this helpful</div>
     </div>
     <div class="testimonial-card-nd">
-      <div class="testimonial-stars-nd">★★★★★</div>
       <p class="testimonial-text-nd">Josh did a great job for me. He replaced the wood surrounds on my traditional sash windows and replaced sills. Where possible he scraped out rotten wood and filled with resin. He always had an eye on the most cost effective solution for me. I'd highly recommend his work and wouldn't hesitate to use him again.</p>
       <div class="testimonial-author-nd">S. P.</div>
       <div class="testimonial-location-nd">Hastings, England · 6 Feb</div>
@@ -427,12 +421,13 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   </div>
 </section>
 
+<!-- Process Section -->
 <section class="section process-section" id="process">
-  <div class="section-header fade-up" style="text-align:center;">
+  <div class="section-header" style="text-align:center;">
     <div class="section-tag" style="justify-content:center;">How It Works</div>
     <h2 class="section-title" style="text-align:center;">Our Process</h2>
   </div>
-  <div class="process-steps fade-up">
+  <div class="process-steps">
     <div class="process-step"><div class="step-num">1</div><div class="step-title">Free Consultation</div><p class="step-desc">We visit your property, assess the windows and doors, and listen to what you need — no pressure, no sales pitch.</p></div>
     <div class="process-step"><div class="step-num">2</div><div class="step-title">Honest Assessment</div><p class="step-desc">We give you a clear, transparent quote — repair where possible, replace only where necessary.</p></div>
     <div class="process-step"><div class="step-num">3</div><div class="step-title">Precision Craftsmanship</div><p class="step-desc">Our skilled hands do the work — methodically, cleanly, with care for your home and its original character.</p></div>
@@ -440,7 +435,8 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   </div>
 </section>
 
-<div class="offer-banner fade-up">
+<!-- Offer Banner -->
+<div class="offer-banner">
   <div class="offer-text"><div class="offer-pct">5% OFF</div><div class="offer-desc">Mention this website when you get in touch</div></div>
   <div class="offer-mid"><em>"Restoring character.<br>Improving comfort."</em></div>
   <div class="offer-actions">
@@ -450,8 +446,9 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   </div>
 </div>
 
+<!-- Contact Section -->
 <section class="contact-section" id="contact">
-  <div class="contact-left fade-up">
+  <div class="contact-left">
     <div class="section-tag">Get In Touch</div>
     <h2 class="section-title">Let's Talk<br>About Your<br><em style="font-style:italic;color:var(--light-mid);">Windows</em></h2>
     <p class="contact-desc">Whether you need a quick repair or an entire restoration project, Joshua will get back to you promptly.</p>
@@ -462,7 +459,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
       <div class="contact-row"><div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="contact-label">Instagram</div><div class="contact-val">@jr_sashsolutions_</div></div></div>
     </div>
   </div>
-  <div class="contact-form fade-up">
+  <div class="contact-form">
     <div class="form-row"><div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Joshua Smith"></div><div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="07700 000000"></div></div>
     <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@example.com"></div>
     <div class="form-group"><label class="form-label">Property Type</label><input class="form-input" type="text" placeholder="Victorian terrace, Georgian townhouse..."></div>
