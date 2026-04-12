@@ -156,16 +156,28 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 
 .fade-up { opacity: 1; transform: none; }
 
-/* TESTIMONIALS - FIXED OVERLAPPING STARS */
+/* TESTIMONIALS - FIXED STARS NO OVERLAP */
 .testimonials-section { padding: 4rem 5rem 5rem; background: var(--warm-white); }
 .testimonials-header { text-align: center; margin-bottom: 2.5rem; }
 .testimonials-eyebrow { font-size: 0.63rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.7rem; }
 .testimonials-eyebrow::before, .testimonials-eyebrow::after { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
 .testimonials-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 300; color: var(--dark); }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.testimonial-card-nd { background: var(--cream); border: 1px solid var(--border); padding: 1.8rem; position: relative; display: flex; flex-direction: column; transition: transform 0.2s ease; }
+.testimonial-card-nd { background: var(--cream); border: 1px solid var(--border); padding: 1.8rem; position: relative; display: flex; flex-direction: column; }
 .testimonial-card-nd::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 4rem; line-height: 0.5; color: var(--gold); opacity: 0.3; position: absolute; top: 0.8rem; left: 1.2rem; pointer-events: none; }
-.testimonial-stars { color: var(--gold); font-size: 1rem; letter-spacing: 0.12em; margin-bottom: 0.9rem; white-space: nowrap; display: inline-block; width: auto; font-weight: 400; }
+.testimonial-stars { 
+  color: var(--gold); 
+  font-size: 1.1rem; 
+  letter-spacing: 0.08em; 
+  margin-bottom: 1rem; 
+  display: inline-block;
+  width: auto;
+  line-height: 1.2;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  white-space: normal;
+  word-break: keep-all;
+}
 .testimonial-text-nd { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 300; font-style: italic; line-height: 1.65; color: var(--mid); margin-bottom: 1.2rem; position: relative; z-index: 1; flex: 1; }
 .testimonial-author-nd { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); margin-top: 0.5rem; }
 .testimonial-location { font-size: 0.6rem; color: var(--stone); margin-top: 0.2rem; }
@@ -200,14 +212,20 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .lb-img { min-height: 240px; }
   .lb-info { padding: 1.8rem 1.4rem; }
   footer { padding: 2rem 1.4rem; flex-direction: column; text-align: center; gap: 0.6rem; }
-  .testimonial-stars { white-space: nowrap; display: inline-block; width: auto; font-size: 0.9rem; letter-spacing: 0.1em; }
+  .testimonial-stars { 
+    font-size: 1rem; 
+    letter-spacing: 0.06em;
+  }
   .testimonial-badge { white-space: normal; flex-wrap: wrap; }
 }
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
   .testimonials-section { padding: 3rem 1.4rem 4rem; }
-  .testimonial-stars { font-size: 0.85rem; letter-spacing: 0.08em; }
+  .testimonial-stars { 
+    font-size: 0.9rem; 
+    letter-spacing: 0.05em;
+  }
 }
 </style>
 <script src="https://www.kimi.com/sdk-seed.js" defer=""></script></head>
@@ -248,7 +266,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   <a href="/index#contact">Contact</a>
   <div class="mob-cta-wrap">
     <a href="tel:07724478519" class="mob-cta">Call 07724 478519</a>
-    <span class="mob-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aec7c0c8c1eec4dcddcfdcc7dcc0c3dbdac7c1c0dd80cdc180dbc5">[email&#160;protected]</a></span>
+    <span class="mob-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2f464149406f455d5c4e5c475c4043595841454459014c40015a44">[email&#160;protected]</a></span>
   </div>
 </div>
 
@@ -499,7 +517,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 
 <footer>
   <div class="footer-logo">JR <span>Sash</span> Solutions</div>
-  <div class="footer-mid">© 2025 JR Sash Solutions · Joshua Rumble · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="523b3c343d1238222331203b203c3f27263b3d3c217c313d7c2739">[email&#160;protected]</a></div>
+  <div class="footer-mid">© 2025 JR Sash Solutions · Joshua Rumble · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6f060109002f051d1c0e1c071c000319180503021f420f03421907">[email&#160;protected]</a></div>
   <div class="footer-right">Sussex · Kent · London</div>
 </footer>
 
