@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,7 +254,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 <body>
 
 <nav id="mainNav">
-  <a href="index.html" class="nav-logo">
+  <a href="/index" class="nav-logo">
     <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="1" y="1" width="36" height="36" stroke="#1a1714" stroke-width="1.5"/>
       <rect x="5" y="5" width="28" height="28" stroke="#1a1714" stroke-width="0.8"/>
@@ -269,7 +270,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#why">About</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="/gallery">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
@@ -283,7 +284,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#services" class="mob-link">Services</a>
   <a href="#why" class="mob-link">About</a>
-  <a href="gallery.html" class="mob-link">Gallery</a>
+  <a href="/gallery" class="mob-link">Gallery</a>
   <a href="#contact" class="mob-link">Contact</a>
   <div class="mob-cta-wrap">
     <a href="tel:07724478519" class="mob-cta">Call 07724 478519</a>
@@ -309,7 +310,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     <p class="hero-sub">Restored, repaired, and reimagined for period and modern properties across Sussex, Kent &amp; London.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Free Consultation</a>
-      <a href="gallery.html" class="btn-ghost">View Our Work</a>
+      <a href="/gallery" class="btn-ghost">View Our Work</a>
     </div>
     <div class="hero-stats">
       <div><div class="stat-num">8+</div><div class="stat-label">Years' Experience</div></div>
@@ -461,4 +462,14 @@ const mob = document.getElementById('mobileMenu');
 ham.addEventListener('click', () => {
   ham.classList.toggle('open');
   mob.classList.toggle('open');
-  document.body.style.overflow = mob.clas
+  document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '';
+}));
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1.2rem 4rem';
+});
+</script>
+</body>
+</html>
