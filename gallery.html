@@ -157,9 +157,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 .footer-mid { font-size: 0.68rem; color: #5a5248; }
 .footer-right { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5a5248; }
 
-.fade-up { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
-.js-loaded .fade-up { opacity: 0; transform: translateY(24px); }
-.js-loaded .fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 1; transform: none; }
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -501,7 +499,6 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 </footer>
 
 <script>
-document.body.classList.add('js-loaded');
 const ham = document.getElementById('hamburger');
 const mob = document.getElementById('mobileMenu');
 ham.addEventListener('click', () => {
@@ -598,10 +595,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0 });
-document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
-// Fallback: make all visible after 600ms if observer hasn't fired
-setTimeout(() => { document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible')); }, 600);
 </script>
 </body>
 </html>

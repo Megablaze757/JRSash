@@ -186,8 +186,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 .footer-left { font-size: 0.68rem; color: #5a5248; letter-spacing: 0.08em; }
 .footer-right { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5a5248; }
 
-.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-.fade-up.visible { opacity: 1; transform: none; }
+.fade-up { opacity: 1; }
 
 /* ══════════════════════════════
    MOBILE
@@ -457,7 +456,6 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 </footer>
 
 <script>
-document.body.classList.add('js-loaded');
 const ham = document.getElementById('hamburger');
 const mob = document.getElementById('mobileMenu');
 ham.addEventListener('click', () => {
