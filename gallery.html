@@ -70,9 +70,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 
 .gcard { position: relative; overflow: hidden; background: var(--mid); cursor: pointer; aspect-ratio: 4/3; }
-.gcard.tall { aspect-ratio: 3/4; }
-.gcard.wide { grid-column: span 2; aspect-ratio: 16/9; }
-.gcard.feature { grid-column: span 2; aspect-ratio: 16/8; }
 
 .gcard img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
 .gcard:hover img { transform: scale(1.05); }
@@ -171,8 +168,6 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .filter-label { display: none; }
   .gallery-section { padding: 2rem 1rem 4rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .gcard.wide, .gcard.feature { grid-column: span 2; }
-  .gcard.tall { aspect-ratio: 4/3; }
   .about-strip { grid-template-columns: 1fr; padding: 3rem 1.4rem; gap: 2.5rem; }
   .mid-callout { margin: 0 1.4rem; flex-direction: column; gap: 1.5rem; }
   .mid-callout-action { width: 100%; text-align: center; }
@@ -189,8 +184,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 }
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr; }
-  .gcard.wide, .gcard.feature, .gcard.tall { grid-column: auto; aspect-ratio: 4/3; }
-}
+  }
 </style>
 </head>
 <body>
@@ -266,7 +260,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   <div class="gallery-grid" id="galleryGrid">
 
     <!-- Feature: beautiful arched fanlight interior -->
-    <div class="gcard feature" data-cat="bespoke" data-id="0">
+    <div class="gcard" data-cat="bespoke" data-id="0">
       <img src="images/img01.jpg" alt="Arched fanlight sash window interior" loading="lazy">
       <div class="gcard-overlay">
         <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
@@ -277,7 +271,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     </div>
 
     <!-- Curved bow bay interior -->
-    <div class="gcard tall" data-cat="bespoke" data-id="1">
+    <div class="gcard" data-cat="bespoke" data-id="1">
       <img src="images/img11.jpg" alt="Curved bow bay window interior" loading="lazy">
       <div class="gcard-overlay">
         <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
@@ -288,7 +282,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     </div>
 
     <!-- Large curved bay interior -->
-    <div class="gcard tall" data-cat="bespoke" data-id="2">
+    <div class="gcard" data-cat="bespoke" data-id="2">
       <img src="images/img03.jpg" alt="Large curved bay window interior" loading="lazy">
       <div class="gcard-overlay">
         <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
@@ -332,7 +326,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     </div>
 
     <!-- Bay exterior freshly installed -->
-    <div class="gcard wide" data-cat="bespoke" data-id="6">
+    <div class="gcard" data-cat="bespoke" data-id="6">
       <img src="images/img09.jpg" alt="Bay window freshly installed exterior" loading="lazy">
       <div class="gcard-overlay">
         <div class="gcard-tag">Bespoke Windows &amp; Doors</div>
