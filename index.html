@@ -465,12 +465,39 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     </div>
   </div>
   <div class="contact-form">
-    <div class="form-row"><div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Joshua Smith"></div><div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="07700 000000"></div></div>
-    <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@example.com"></div>
-    <div class="form-group"><label class="form-label">Property Type</label><input class="form-input" type="text" placeholder="Victorian terrace, Georgian townhouse..."></div>
-    <div class="form-group"><label class="form-label">Tell Us About Your Project</label><textarea class="form-textarea" rows="5" placeholder="Describe your windows, doors, or any issues you're experiencing..."></textarea></div>
-    <button class="form-submit">Send Enquiry →</button>
+    <div class="form-row">
+      <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" id="cf-name" type="text" placeholder="Joshua Smith"></div>
+      <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="cf-phone" type="tel" placeholder="07700 000000"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" id="cf-email" type="email" placeholder="you@example.com"></div>
+    <div class="form-group"><label class="form-label">Property Type</label><input class="form-input" id="cf-property" type="text" placeholder="Victorian terrace, Georgian townhouse..."></div>
+    <div class="form-group"><label class="form-label">Tell Us About Your Project</label><textarea class="form-textarea" id="cf-message" rows="5" placeholder="Describe your windows, doors, or any issues you're experiencing..."></textarea></div>
+    <button class="form-submit" id="cf-submit" onclick="sendToWhatsApp()">Send Enquiry →</button>
   </div>
+
+  <script>
+    function sendToWhatsApp() {
+      var name     = document.getElementById('cf-name').value.trim();
+      var phone    = document.getElementById('cf-phone').value.trim();
+      var email    = document.getElementById('cf-email').value.trim();
+      var property = document.getElementById('cf-property').value.trim();
+      var message  = document.getElementById('cf-message').value.trim();
+
+      if (!name) { alert('Please enter your name.'); return; }
+      if (!phone && !email) { alert('Please enter a phone number or email address.'); return; }
+
+      var text = 'Hi JR Sash Solutions, I found you on your website and would like a quote.\n\n';
+      text += 'Name: ' + name + '\n';
+      if (phone)    text += 'Phone: ' + phone + '\n';
+      if (email)    text += 'Email: ' + email + '\n';
+      if (property) text += 'Property: ' + property + '\n';
+      if (message)  text += '\nProject details:\n' + message;
+
+      var waNumber = '447724478519';
+      var url = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(text);
+      window.open(url, '_blank');
+    }
+  </script>
 </section>
 
 <footer>
