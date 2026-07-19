@@ -203,6 +203,23 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 .footer-right { font-size: 0.63rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5a5248; }
 
 /* MOBILE RESPONSIVE */
+/* BEFORE/AFTER SLIDER */
+.ba-feature { padding: 4rem 5rem 1rem; }
+.ba-feature-head { text-align: center; max-width: 640px; margin: 0 auto 2rem; }
+.ba-feature-head .eyebrow { justify-content: center; }
+.ba-feature-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; font-style: italic; color: var(--dark); margin: 0.6rem 0 0.7rem; }
+.ba-feature-head p { font-size: 0.82rem; line-height: 1.7; color: var(--light-mid); }
+.ba-slider { position: relative; max-width: 900px; margin: 0 auto; aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; cursor: ew-resize; touch-action: none; user-select: none; box-shadow: 0 20px 50px -20px rgba(26,23,20,0.35); }
+.ba-slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-img-before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: var(--warm-white); transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 0 1px rgba(26,23,20,0.15); }
+.ba-grip { position: absolute; top: 50%; left: var(--pos, 50%); transform: translate(-50%, -50%); width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--warm-white); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; gap: 0.2rem; pointer-events: none; }
+.ba-grip svg { width: 14px; height: 14px; color: var(--gold); }
+.ba-tag { position: absolute; bottom: 1rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-white); background: rgba(26,23,20,0.65); padding: 0.4rem 0.8rem; pointer-events: none; }
+.ba-tag-before { left: 1rem; }
+.ba-tag-after { right: 1rem; }
+.ba-hint { text-align: center; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); margin-top: 1rem; }
+
 @media (max-width: 768px) {
   nav { padding: 1rem 1.4rem; }
   .nav-links, .nav-cta { display: none; }
@@ -236,6 +253,8 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .form-submit { width: 100%; text-align: center; }
   footer { padding: 2rem 1.4rem; flex-direction: column; text-align: center; gap: 0.6rem; }
   .testimonial-likes-nd { white-space: normal; flex-wrap: wrap; }
+  .ba-feature { padding: 2rem 1.4rem 0.5rem; }
+  .ba-grip { width: 2.2rem; height: 2.2rem; }
 }
 </style>
 </head>
@@ -329,6 +348,23 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
     <span class="marquee-item">Heritage Specialists <span class="marquee-dot">·</span></span>
   </div>
 </div>
+
+<section class="ba-feature">
+  <div class="ba-feature-head">
+    <div class="eyebrow">The Difference</div>
+    <h2>drag the line. watch it change.</h2>
+    <p>Timber decay and woodworm damage found during our full window renovation in Sussex, alongside the finished result once the frames were spliced, re-hung and painted.</p>
+  </div>
+  <div class="ba-slider" id="baSlider" style="--pos:50%;">
+    <img class="ba-img-after" src="images/reno-06.jpg" alt="Finished window detail after renovation"/>
+    <img class="ba-img-before" src="images/reno-18.jpg" alt="Rotten timber frame before renovation"/>
+    <div class="ba-handle"></div>
+    <div class="ba-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 7L3 12L8 17M16 7L21 12L16 17"/></svg></div>
+    <span class="ba-tag ba-tag-before">Before</span>
+    <span class="ba-tag ba-tag-after">After</span>
+  </div>
+  <div class="ba-hint">Drag or tap anywhere on the image</div>
+</section>
 
 <!-- Services Section -->
 <section class="section" id="services">
@@ -520,6 +556,27 @@ mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').style.padding = window.scrollY > 60 ? '0.75rem 4rem' : '1.2rem 4rem';
 });
+
+// BEFORE/AFTER SLIDER
+(function() {
+  const slider = document.getElementById('baSlider');
+  if (!slider) return;
+  let dragging = false;
+  function setPos(clientX) {
+    const rect = slider.getBoundingClientRect();
+    let pct = ((clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    slider.style.setProperty('--pos', pct + '%');
+  }
+  slider.addEventListener('pointerdown', e => {
+    dragging = true;
+    slider.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+  });
+  slider.addEventListener('pointermove', e => { if (dragging) setPos(e.clientX); });
+  slider.addEventListener('pointerup', () => { dragging = false; });
+  slider.addEventListener('pointercancel', () => { dragging = false; });
+})();
 </script>
 </body>
 </html>

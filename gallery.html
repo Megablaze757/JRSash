@@ -142,10 +142,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .lb-cta:hover { background: var(--gold-light); }
 .lb-close { position: absolute; top: 1rem; right: 1rem; width: 2rem; height: 2rem; cursor: pointer; border: 1px solid rgba(168,137,92,0.3); background: rgba(26,23,20,0.7); display: flex; align-items: center; justify-content: center; color: var(--stone); font-size: 0.9rem; transition: border-color 0.3s, color 0.3s; z-index: 10; }
 .lb-close:hover { border-color: var(--gold); color: var(--gold); }
-.lb-nav { position: absolute; bottom: 1rem; right: 1rem; display: flex; gap: 0.4rem; }
-.lb-nav-btn { width: 2rem; height: 2rem; cursor: pointer; border: 1px solid rgba(168,137,92,0.3); background: rgba(26,23,20,0.6); color: var(--stone); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: border-color 0.3s, color 0.3s; }
-.lb-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
-.lb-counter { position: absolute; bottom: 1.1rem; left: 2.5rem; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--stone); }
+.lb-nav { position: absolute; top: 50%; left: 0; right: 0; display: flex; justify-content: space-between; padding: 0 0.8rem; transform: translateY(-50%); pointer-events: none; z-index: 6; }
+.lb-nav-btn { pointer-events: all; width: 2.8rem; height: 2.8rem; border-radius: 50%; cursor: pointer; border: 1px solid rgba(168,137,92,0.4); background: rgba(26,23,20,0.55); color: var(--warm-white); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: border-color 0.25s, color 0.25s, background 0.25s; }
+.lb-nav-btn:hover { border-color: var(--gold); color: var(--gold); background: rgba(26,23,20,0.75); }
+.lb-counter { position: absolute; top: 1rem; right: 1rem; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--warm-white); background: rgba(26,23,20,0.6); padding: 0.3rem 0.6rem; z-index: 6; }
 .lb-filmstrip { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 5px; overflow-x: auto; padding: 0.6rem 0.6rem; background: linear-gradient(to top, rgba(12,10,8,0.85), rgba(12,10,8,0)); scrollbar-width: none; }
 .lb-filmstrip::-webkit-scrollbar { display: none; }
 .lb-filmstrip img { width: 52px; height: 40px; object-fit: cover; flex-shrink: 0; cursor: pointer; opacity: 0.5; border: 1px solid transparent; transition: opacity 0.25s, border-color 0.25s; }
@@ -562,11 +562,6 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
       <a href="/index#contact" class="lb-cta">Get a Quote Like This</a>
     </div>
     <button class="lb-close" id="lbClose">✕</button>
-    <div class="lb-nav">
-      <button class="lb-nav-btn" id="lbPrev">←</button>
-      <button class="lb-nav-btn" id="lbNext">→</button>
-    </div>
-    <div class="lb-counter" id="lbCounter"></div>
   </div>
 </div>
 
@@ -604,15 +599,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 const projectData = [
-  { tag:'Whole-House Renovation', title:'Full Exterior Window Renovation — Period Family Home', loc:'Sussex', desc:'A full external window renovation on a substantial Arts & Crafts style family home, carried out from a full scaffold wrap. Extensive timber decay and woodworm damage was found in the original box frames and sills, which were cut back and spliced with new hardwood before the sashes and casements were re-hung, draught-sealed, and finished in a deep anthracite grey against the red brick and hung-tile elevations. The gallery below is a curated run from the decay uncovered on site, through the splicing and joinery process, to the finished windows.', images:[
-    'images/reno-07.jpg','images/reno-02.jpg',
-    'images/reno-16.jpg','images/reno-10.jpg','images/reno-18.jpg',
-    'images/reno-08.jpg','images/reno-22.jpg','images/reno-26.jpg','images/reno-28.jpg',
-    {video:'images/reno-v1.mp4', poster:'images/reno-v1-poster.jpg'},
-    'images/reno-27.jpg',
-    {video:'images/reno-v2.mp4', poster:'images/reno-v2-poster.jpg'},
-    'images/reno-05.jpg','images/reno-03.jpg','images/reno-06.jpg'
-  ] },
   { tag:'Bespoke Windows & Doors', title:'Arched Fanlight Sash — Interior View', loc:'Brighton, East Sussex', src:'images/img14.jpg', desc:'A beautifully proportioned arched fanlight sash window, fully restored with the original glazing bars retained. Brass sash fasteners fitted to the lower sash. The arch and reveal are painted in a warm white, complementing the period interior.' },
   { tag:'Bespoke Windows & Doors', title:'Curved Bow Bay — Town Centre Flat', loc:'Lewes, East Sussex', src:'images/img04.jpg', desc:'Five-light curved bow bay window, refurbished and draught-proofed. All sashes slide freely, meeting rail seals replaced throughout. The curved sill panelling was also repaired and repainted.' },
   { tag:'Bespoke Windows & Doors', title:'Period Bay Window — Seven-Light Curved', loc:'Worthing, West Sussex', src:'images/img12.jpg', desc:'A sweeping curved bay with seven sash lights, all refurbished to period standard. Cords replaced throughout, draught seals fitted, and the ornate plaster cornice above protected throughout the works.' },
@@ -627,6 +613,15 @@ const projectData = [
   { tag:'Carpentry', title:'New Exterior Window Sill — Timber', loc:'Brighton, East Sussex', src:'images/img13.jpg', desc:'A new exterior timber sill, cut, fitted, and painted on-site. The old sill was rotten beyond repair — this replacement was shaped to match the original profile, primed, and finished in gloss white.' },
   { tag:'Bespoke Windows & Doors', title:'Tall Narrow Sash — Period High Street', loc:'East Sussex', src:'images/img02.jpg', desc:'Tall narrow sash window, refurbished and re-glazed. The slim proportions are characteristic of late Victorian commercial buildings. Brass sash lifts and fasteners fitted to both sashes.' },
   { tag:'Decorating', title:'Black-Painted Frame — Cottage Sash', loc:'Kent', src:'images/img01.jpg', desc:'Sash window with twelve panes, repainted in high-gloss black to contrast with the white rendered cottage wall. The frame was fully prepared, primed, and finished in two coats of exterior gloss.' },
+  { tag:'Whole-House Renovation', title:'Full Exterior Window Renovation — Period Family Home', loc:'Sussex', desc:'A full external window renovation on a substantial Arts & Crafts style family home, carried out from a full scaffold wrap. Extensive timber decay and woodworm damage was found in the original box frames and sills, which were cut back and spliced with new hardwood before the sashes and casements were re-hung, draught-sealed, and finished in a deep anthracite grey against the red brick and hung-tile elevations. The gallery below is a curated run from the decay uncovered on site, through the splicing and joinery process, to the finished windows.', images:[
+    'images/reno-07.jpg','images/reno-02.jpg',
+    'images/reno-16.jpg','images/reno-10.jpg','images/reno-18.jpg',
+    'images/reno-08.jpg','images/reno-22.jpg','images/reno-26.jpg','images/reno-28.jpg',
+    {video:'images/reno-v1.mp4', poster:'images/reno-v1-poster.jpg'},
+    'images/reno-27.jpg',
+    {video:'images/reno-v2.mp4', poster:'images/reno-v2-poster.jpg'},
+    'images/reno-05.jpg','images/reno-03.jpg','images/reno-06.jpg'
+  ] },
 ];
 
 const lightbox = document.getElementById('lightbox');
@@ -649,13 +644,13 @@ function showLb(id) {
   document.getElementById('lbLoc').textContent = '↳ ' + d.loc;
   document.getElementById('lbDesc').textContent = d.desc;
   renderLbPhoto(d, photos);
-  const pos = visibleIds.indexOf(id);
-  document.getElementById('lbCounter').textContent = photos.length > 1
-    ? `Photo ${currentPhoto + 1} of ${photos.length}`
-    : `${pos + 1} / ${visibleIds.length}`;
 }
 function thumbSrc(item) { return typeof item === 'string' ? item : item.poster; }
 function renderLbPhoto(d, photos) {
+  const pos = visibleIds.indexOf(currentId);
+  const counterText = photos.length > 1
+    ? `Photo ${currentPhoto + 1} of ${photos.length}`
+    : `${pos + 1} / ${visibleIds.length}`;
   const badge = photos.length > 1 ? `<div class="lb-job-badge">${photos.length} photos &amp; videos from this job</div>` : '';
   const strip = photos.length > 1
     ? `<div class="lb-filmstrip">${photos.map((p,i) => {
@@ -667,7 +662,9 @@ function renderLbPhoto(d, photos) {
   const mediaHtml = typeof current === 'string'
     ? `<img src="${current}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
     : `<video src="${current.video}" poster="${current.poster}" controls playsinline style="width:100%;height:100%;object-fit:cover;display:block;background:#000;"></video>`;
-  document.getElementById('lbImg').innerHTML = `${badge}${mediaHtml}${strip}`;
+  const nav = `<div class="lb-nav"><button class="lb-nav-btn" id="lbPrev" aria-label="Previous">←</button><button class="lb-nav-btn" id="lbNext" aria-label="Next">→</button></div>`;
+  const counter = `<div class="lb-counter">${counterText}</div>`;
+  document.getElementById('lbImg').innerHTML = `${badge}${mediaHtml}${strip}${nav}${counter}`;
   if (photos.length > 1) {
     document.querySelectorAll('.lb-filmstrip img, .lb-filmstrip .lb-thumb-wrap').forEach(t => t.addEventListener('click', e => {
       e.stopPropagation();
@@ -678,10 +675,7 @@ function renderLbPhoto(d, photos) {
 }
 function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
 
-document.querySelectorAll('.gcard').forEach(c => c.addEventListener('click', () => openLightbox(+c.dataset.id)));
-document.getElementById('lbClose').addEventListener('click', closeLightbox);
-lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-document.getElementById('lbPrev').addEventListener('click', () => {
+function goPrev() {
   const d = projectData[currentId];
   const photos = d.images || [d.src];
   if (photos.length > 1) {
@@ -693,8 +687,8 @@ document.getElementById('lbPrev').addEventListener('click', () => {
   currentId = visibleIds[(pos - 1 + visibleIds.length) % visibleIds.length];
   currentPhoto = 0;
   showLb(currentId);
-});
-document.getElementById('lbNext').addEventListener('click', () => {
+}
+function goNext() {
   const d = projectData[currentId];
   const photos = d.images || [d.src];
   if (photos.length > 1) {
@@ -706,11 +700,20 @@ document.getElementById('lbNext').addEventListener('click', () => {
   currentId = visibleIds[(pos + 1) % visibleIds.length];
   currentPhoto = 0;
   showLb(currentId);
+}
+
+document.querySelectorAll('.gcard').forEach(c => c.addEventListener('click', () => openLightbox(+c.dataset.id)));
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+// lbPrev/lbNext are re-created on every render, so bind via delegation on the stable #lbImg container
+document.getElementById('lbImg').addEventListener('click', e => {
+  if (e.target.closest('#lbPrev')) { e.stopPropagation(); goPrev(); }
+  else if (e.target.closest('#lbNext')) { e.stopPropagation(); goNext(); }
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
-  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  if (e.key === 'ArrowLeft') goPrev();
+  if (e.key === 'ArrowRight') goNext();
 });
 
 document.querySelectorAll('.filter-btn').forEach(btn => {
