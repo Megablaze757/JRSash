@@ -146,6 +146,31 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .lb-nav-btn { width: 2rem; height: 2rem; cursor: pointer; border: 1px solid rgba(168,137,92,0.3); background: rgba(26,23,20,0.6); color: var(--stone); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: border-color 0.3s, color 0.3s; }
 .lb-nav-btn:hover { border-color: var(--gold); color: var(--gold); }
 .lb-counter { position: absolute; bottom: 1.1rem; left: 2.5rem; font-size: 0.62rem; letter-spacing: 0.2em; color: var(--stone); }
+.lb-filmstrip { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 5px; overflow-x: auto; padding: 0.6rem 0.6rem; background: linear-gradient(to top, rgba(12,10,8,0.85), rgba(12,10,8,0)); scrollbar-width: none; }
+.lb-filmstrip::-webkit-scrollbar { display: none; }
+.lb-filmstrip img { width: 52px; height: 40px; object-fit: cover; flex-shrink: 0; cursor: pointer; opacity: 0.5; border: 1px solid transparent; transition: opacity 0.25s, border-color 0.25s; }
+.lb-filmstrip img.active { opacity: 1; border-color: var(--gold); }
+.lb-filmstrip img:hover { opacity: 0.85; }
+.lb-thumb-wrap { position: relative; flex-shrink: 0; display: inline-block; }
+.lb-thumb-wrap::after { content: ''; position: absolute; top: 50%; left: 50%; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent rgba(245,240,232,0.95); transform: translate(-40%, -50%); pointer-events: none; }
+.lb-job-badge { position: absolute; top: 1rem; left: 1rem; font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); background: rgba(26,23,20,0.7); border: 1px solid rgba(168,137,92,0.3); padding: 0.35rem 0.7rem; z-index: 5; }
+
+/* BEFORE/AFTER SLIDER */
+.ba-feature { padding: 3rem 5rem 1rem; border-bottom: 1px solid var(--border); }
+.ba-feature-head { text-align: center; max-width: 640px; margin: 0 auto 2rem; }
+.ba-feature-head .eyebrow { justify-content: center; }
+.ba-feature-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 300; font-style: italic; color: var(--dark); margin: 0.6rem 0 0.7rem; }
+.ba-feature-head p { font-size: 0.82rem; line-height: 1.7; color: var(--light-mid); }
+.ba-slider { position: relative; max-width: 900px; margin: 0 auto; aspect-ratio: 4/3; overflow: hidden; border-radius: 2px; cursor: ew-resize; touch-action: none; user-select: none; box-shadow: 0 20px 50px -20px rgba(26,23,20,0.35); }
+.ba-slider img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.ba-img-before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 2px; background: var(--warm-white); transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 0 1px rgba(26,23,20,0.15); }
+.ba-grip { position: absolute; top: 50%; left: var(--pos, 50%); transform: translate(-50%, -50%); width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--warm-white); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; gap: 0.2rem; pointer-events: none; }
+.ba-grip svg { width: 14px; height: 14px; color: var(--gold); }
+.ba-tag { position: absolute; bottom: 1rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-white); background: rgba(26,23,20,0.65); padding: 0.4rem 0.8rem; pointer-events: none; }
+.ba-tag-before { left: 1rem; }
+.ba-tag-after { right: 1rem; }
+.ba-hint { text-align: center; font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light-mid); margin-top: 1rem; }
 
 /* FOOTER */
 footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(168,137,92,0.12); }
@@ -192,6 +217,8 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .page-header { grid-template-columns: 1fr; padding: 110px 1.4rem 2.5rem; gap: 1.5rem; }
   .page-header::before { font-size: 4rem; right: 0; top: auto; bottom: 0; transform: none; }
   .filter-bar { padding: 1rem 1.4rem; top: 64px; }
+  .ba-feature { padding: 2rem 1.4rem 0.5rem; }
+  .ba-grip { width: 2.2rem; height: 2.2rem; }
   .filter-label { display: none; }
   .gallery-section { padding: 2rem 1rem 4rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -211,6 +238,7 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   .lightbox-inner { grid-template-columns: 1fr; max-height: 92vh; }
   .lb-img { min-height: 240px; }
   .lb-info { padding: 1.8rem 1.4rem; }
+  .lb-filmstrip img { width: 42px; height: 32px; }
   footer { padding: 2rem 1.4rem; flex-direction: column; text-align: center; gap: 0.6rem; }
   .testimonial-stars { 
     font-size: 1rem; 
@@ -278,17 +306,35 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
   <div class="header-right">
     <p>Every photo here is a project completed by Joshua and the JR Sash Solutions team — from bay rebuilds to ironmongery details, bespoke joinery to heritage glass. Seven years of craft, all in one place.</p>
     <div class="project-count">
-      <div class="count-item"><div class="num">14</div><div class="lbl">Projects shown</div></div>
+      <div class="count-item"><div class="num">15</div><div class="lbl">Projects shown</div></div>
       <div class="count-item"><div class="num">7</div><div class="lbl">Years' experience</div></div>
       <div class="count-item"><div class="num">3</div><div class="lbl">Counties</div></div>
     </div>
   </div>
 </header>
 
+<section class="ba-feature">
+  <div class="ba-feature-head">
+    <div class="eyebrow">The Difference</div>
+    <h2>drag the line. watch it change.</h2>
+    <p>Timber decay and woodworm damage found during our full window renovation in Sussex, alongside the finished result once the frames were spliced, re-hung and painted.</p>
+  </div>
+  <div class="ba-slider" id="baSlider" style="--pos:50%;">
+    <img class="ba-img-after" src="images/reno-06.jpg" alt="Finished window detail after renovation"/>
+    <img class="ba-img-before" src="images/reno-18.jpg" alt="Rotten timber frame before renovation"/>
+    <div class="ba-handle"></div>
+    <div class="ba-grip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 7L3 12L8 17M16 7L21 12L16 17"/></svg></div>
+    <span class="ba-tag ba-tag-before">Before</span>
+    <span class="ba-tag ba-tag-after">After</span>
+  </div>
+  <div class="ba-hint">Drag or tap anywhere on the image</div>
+</section>
+
 <div class="filter-bar">
   <div class="filter-label">Filter by</div>
   <div class="filters">
     <button class="filter-btn active" data-cat="all">All Work</button>
+    <button class="filter-btn" data-cat="fullreno">Whole-House Projects</button>
     <button class="filter-btn" data-cat="bespoke">Bespoke Windows &amp; Doors</button>
     <button class="filter-btn" data-cat="refurb">Refurbishment</button>
     <button class="filter-btn" data-cat="glass">Glass Upgrades</button>
@@ -300,6 +346,15 @@ footer { background: #111009; padding: 2.5rem 5rem; display: flex; align-items: 
 
 <section class="gallery-section">
   <div class="gallery-grid" id="galleryGrid">
+    <div class="gcard" data-cat="fullreno" data-id="14">
+      <img src="images/reno-07.jpg" alt="Full scaffold elevation of period house window renovation" loading="lazy"/>
+      <div class="gcard-overlay">
+        <div class="gcard-tag">Whole-House Renovation · 15 Photos &amp; Videos</div>
+        <div class="gcard-title">Full Exterior Window Renovation — Period Family Home</div>
+        <div class="gcard-loc">Sussex</div>
+      </div>
+      <div class="gcard-arrow"><svg viewBox="0 0 14 14" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12L12 2M12 2H5M12 2v7"></path></svg></div>
+    </div>
     <div class="gcard" data-cat="bespoke" data-id="0">
       <img src="images/img14.jpg" alt="Arched fanlight sash window interior" loading="lazy"/>
       <div class="gcard-overlay">
@@ -549,6 +604,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 const projectData = [
+  { tag:'Whole-House Renovation', title:'Full Exterior Window Renovation — Period Family Home', loc:'Sussex', desc:'A full external window renovation on a substantial Arts & Crafts style family home, carried out from a full scaffold wrap. Extensive timber decay and woodworm damage was found in the original box frames and sills, which were cut back and spliced with new hardwood before the sashes and casements were re-hung, draught-sealed, and finished in a deep anthracite grey against the red brick and hung-tile elevations. The gallery below is a curated run from the decay uncovered on site, through the splicing and joinery process, to the finished windows.', images:[
+    'images/reno-07.jpg','images/reno-02.jpg',
+    'images/reno-16.jpg','images/reno-10.jpg','images/reno-18.jpg',
+    'images/reno-08.jpg','images/reno-22.jpg','images/reno-26.jpg','images/reno-28.jpg',
+    {video:'images/reno-v1.mp4', poster:'images/reno-v1-poster.jpg'},
+    'images/reno-27.jpg',
+    {video:'images/reno-v2.mp4', poster:'images/reno-v2-poster.jpg'},
+    'images/reno-05.jpg','images/reno-03.jpg','images/reno-06.jpg'
+  ] },
   { tag:'Bespoke Windows & Doors', title:'Arched Fanlight Sash — Interior View', loc:'Brighton, East Sussex', src:'images/img14.jpg', desc:'A beautifully proportioned arched fanlight sash window, fully restored with the original glazing bars retained. Brass sash fasteners fitted to the lower sash. The arch and reveal are painted in a warm white, complementing the period interior.' },
   { tag:'Bespoke Windows & Doors', title:'Curved Bow Bay — Town Centre Flat', loc:'Lewes, East Sussex', src:'images/img04.jpg', desc:'Five-light curved bow bay window, refurbished and draught-proofed. All sashes slide freely, meeting rail seals replaced throughout. The curved sill panelling was also repaired and repainted.' },
   { tag:'Bespoke Windows & Doors', title:'Period Bay Window — Seven-Light Curved', loc:'Worthing, West Sussex', src:'images/img12.jpg', desc:'A sweeping curved bay with seven sash lights, all refurbished to period standard. Cords replaced throughout, draught seals fitted, and the ornate plaster cornice above protected throughout the works.' },
@@ -567,23 +631,50 @@ const projectData = [
 
 const lightbox = document.getElementById('lightbox');
 let currentId = 0;
+let currentPhoto = 0;
 let visibleIds = projectData.map((_,i) => i);
 
 function openLightbox(id) {
   currentId = id;
+  currentPhoto = 0;
   showLb(id);
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 function showLb(id) {
   const d = projectData[id];
+  const photos = d.images || [d.src];
   document.getElementById('lbTag').textContent = d.tag;
   document.getElementById('lbTitle').textContent = d.title;
   document.getElementById('lbLoc').textContent = '↳ ' + d.loc;
   document.getElementById('lbDesc').textContent = d.desc;
-  document.getElementById('lbImg').innerHTML = `<img src="${d.src}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+  renderLbPhoto(d, photos);
   const pos = visibleIds.indexOf(id);
-  document.getElementById('lbCounter').textContent = `${pos + 1} / ${visibleIds.length}`;
+  document.getElementById('lbCounter').textContent = photos.length > 1
+    ? `Photo ${currentPhoto + 1} of ${photos.length}`
+    : `${pos + 1} / ${visibleIds.length}`;
+}
+function thumbSrc(item) { return typeof item === 'string' ? item : item.poster; }
+function renderLbPhoto(d, photos) {
+  const badge = photos.length > 1 ? `<div class="lb-job-badge">${photos.length} photos &amp; videos from this job</div>` : '';
+  const strip = photos.length > 1
+    ? `<div class="lb-filmstrip">${photos.map((p,i) => {
+        const img = `<img src="${thumbSrc(p)}" class="${i === currentPhoto ? 'active' : ''}" data-i="${i}">`;
+        return typeof p === 'string' ? img : `<span class="lb-thumb-wrap" data-i="${i}">${img}</span>`;
+      }).join('')}</div>`
+    : '';
+  const current = photos[currentPhoto];
+  const mediaHtml = typeof current === 'string'
+    ? `<img src="${current}" alt="${d.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+    : `<video src="${current.video}" poster="${current.poster}" controls playsinline style="width:100%;height:100%;object-fit:cover;display:block;background:#000;"></video>`;
+  document.getElementById('lbImg').innerHTML = `${badge}${mediaHtml}${strip}`;
+  if (photos.length > 1) {
+    document.querySelectorAll('.lb-filmstrip img, .lb-filmstrip .lb-thumb-wrap').forEach(t => t.addEventListener('click', e => {
+      e.stopPropagation();
+      currentPhoto = +t.dataset.i;
+      showLb(currentId);
+    }));
+  }
 }
 function closeLightbox() { lightbox.classList.remove('open'); document.body.style.overflow = ''; }
 
@@ -591,13 +682,29 @@ document.querySelectorAll('.gcard').forEach(c => c.addEventListener('click', () 
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.getElementById('lbPrev').addEventListener('click', () => {
+  const d = projectData[currentId];
+  const photos = d.images || [d.src];
+  if (photos.length > 1) {
+    currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+    showLb(currentId);
+    return;
+  }
   const pos = visibleIds.indexOf(currentId);
   currentId = visibleIds[(pos - 1 + visibleIds.length) % visibleIds.length];
+  currentPhoto = 0;
   showLb(currentId);
 });
 document.getElementById('lbNext').addEventListener('click', () => {
+  const d = projectData[currentId];
+  const photos = d.images || [d.src];
+  if (photos.length > 1) {
+    currentPhoto = (currentPhoto + 1) % photos.length;
+    showLb(currentId);
+    return;
+  }
   const pos = visibleIds.indexOf(currentId);
   currentId = visibleIds[(pos + 1) % visibleIds.length];
+  currentPhoto = 0;
   showLb(currentId);
 });
 document.addEventListener('keydown', e => {
@@ -615,6 +722,27 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
   });
 });
+
+// BEFORE/AFTER SLIDER
+(function() {
+  const slider = document.getElementById('baSlider');
+  if (!slider) return;
+  let dragging = false;
+  function setPos(clientX) {
+    const rect = slider.getBoundingClientRect();
+    let pct = ((clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    slider.style.setProperty('--pos', pct + '%');
+  }
+  slider.addEventListener('pointerdown', e => {
+    dragging = true;
+    slider.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+  });
+  slider.addEventListener('pointermove', e => { if (dragging) setPos(e.clientX); });
+  slider.addEventListener('pointerup', () => { dragging = false; });
+  slider.addEventListener('pointercancel', () => { dragging = false; });
+})();
 </script>
 </body>
 </html>
